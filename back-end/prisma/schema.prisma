@@ -1,0 +1,73 @@
+// Relationele laag: transactionele, sterk gerelateerde data (NFR7)
+// De catalogus zelf (titels met wisselende metadata) staat bewust NIET hier,
+// maar in de document store (Mongo) — zie src/modules/catalogus.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  DOCENT
+}
+
+enum LeesStatus {
+  NIET_GELEZEN
+  GELEZEN
+}
+
+model User {
+  id            String          @id @default(uuid())
+  email         String          @unique
+  wachtwoordHash String
+  naam          String
+  role          Role
+  createdAt     DateTime        @default(now())
+
+  readingProfile ReadingProfile?
+  readingList    ReadingListItem[]
+
+  // Student <-> docent koppeling (FR6)
+  koppelingenAlsStudent StudentDocentKoppeling[] @relation("StudentKoppeling")
+  koppelingenAlsDocent  StudentDocentKoppeling[] @relation("DocentKoppeling")
+}
+
+model ReadingProfile {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id])
+  taalniveau  String
+  genre       String
+  onderwerp   String
+  lengte      String
+  leesdoel    String
+  updatedAt   DateTime @updatedAt
+}
+
+model ReadingListItem {
+  id               String     @id @default(uuid())
+  userId           String
+  user             User       @relation(fields: [userId], references: [id])
+  // Verwijst naar een document-id in de catalogus (Mongo), geen FK mogelijk
+  // omdat dit een andere store is.
+  catalogusItemId  String
+  status           LeesStatus @default(NIET_GELEZEN)
+  toegevoegdOp     DateTime   @default(now())
+
+  @@index([userId])
+}
+
+model StudentDocentKoppeling {
+  id         String @id @default(uuid())
+  studentId  String
+  docentId   String
+  student    User   @relation("StudentKoppeling", fields: [studentId], references: [id])
+  docent     User   @relation("DocentKoppeling", fields: [docentId], references: [id])
+
+  @@unique([studentId, docentId])
+}
