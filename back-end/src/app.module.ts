@@ -4,12 +4,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { ProfileModule } from './modules/profile/profile.module';
 
 // NB: modules/auth, modules/profile, modules/advies, modules/catalogus en
 // modules/leeslijst zijn hier als lege scaffolds neergezet. Elke module krijgt
 // straks zijn eigen controller -> service -> repository laag (zie README).
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }), PrismaModule, AuthModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), PrismaModule, AuthModule, ProfileModule],
   controllers: [AppController],
   providers: [AppService],
 })
