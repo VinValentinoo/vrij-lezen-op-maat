@@ -1,6 +1,7 @@
 'use client';
 
 import { apiFetch } from "@/lib/api-client";
+import { getToken } from "@/lib/cookies";
 import { useEffect, useState } from "react";
 
 type Profile = {
