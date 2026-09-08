@@ -55,8 +55,8 @@ export default function ProfielPage() {
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
-        setErr('');
         setLoading(true);
+        setErr('');
 
         try {
             const data = await apiFetch<Profile>('/profile', {
@@ -66,14 +66,13 @@ export default function ProfielPage() {
             setProfile(data);
             setProfileExists(true);
         } catch (err) {
-            if(err instanceof Error) {
+            if (err instanceof Error) {
                 setErr(err.message);
             } else {
                 setErr('Er is iets mis gegaan.')
             }
         } finally {
             setLoading(false);
-            setErr('')
         }
     }
 
@@ -90,51 +89,69 @@ export default function ProfielPage() {
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="taalniveau">Taalniveau</label>
-                        <input
+                        <select
                             id="taalniveau"
-                            type="text"
                             value={profile.taalniveau}
-                            onChange={(e) => setProfile({ ...profile, taalniveau: e.target.value})}
-                            required
-                        />
+                            onChange={(e) => setProfile({ ...profile, taalniveau: e.target.value })}
+                        >
+                            <option value="">Alle</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                        </select>
                     </div>
+
                     <div>
                         <label htmlFor="genre">Genre</label>
-                        <input
+                        <select
                             id="genre"
-                            type="text"
                             value={profile.genre}
-                            onChange={(e) => setProfile({ ...profile, genre: e.target.value})}
-                            required
-                        />
+                            onChange={(e) => setProfile({ ...profile, genre: e.target.value })}
+                        >
+                            <option value="">Alle</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="Romantiek">Romantiek</option>
+                            <option value="Avontuur">Avontuur</option>
+                        </select>
                     </div>
+
                     <div>
                         <label htmlFor="onderwerp">Onderwerp</label>
-                        <input
+                        <select
                             id="onderwerp"
-                            type="text"
                             value={profile.onderwerp}
-                            onChange={(e) => setProfile({ ...profile, onderwerp: e.target.value})}
-                            required
-                        />
+                            onChange={(e) => setProfile({ ...profile, onderwerp: e.target.value })}
+                        >
+                            <option value="">Alle</option>
+                            <option value="Familie">Familie</option>
+                            <option value="Mysterie">Mysterie</option>
+                            <option value="Liefde">Liefde</option>
+                        </select>
                     </div>
+
                     <div>
                         <label htmlFor="lengte">Lengte</label>
-                        <input
+                        <select
                             id="lengte"
-                            type="text"
                             value={profile.lengte}
-                            onChange={(e) => setProfile({ ...profile, lengte: e.target.value})}
-                            required
-                        />
+                            onChange={(e) => setProfile({...profile, lengte: e.target.value})}
+                        >
+                            <option value="">Alle</option>
+                            <option value="Kort">Kort</option>
+                            <option value="Middel">Middel</option>
+                            <option value="Lang">Lang</option>
+                        </select>
                     </div>
+
                     <div>
                         <label htmlFor="leesdoel">Leesdoel</label>
                         <input
                             id="leesdoel"
                             type="text"
                             value={profile.leesdoel}
-                            onChange={(e) => setProfile({ ...profile, leesdoel: e.target.value})}
+                            onChange={(e) => setProfile({ ...profile, leesdoel: e.target.value })}
                             required
                         />
                     </div>
