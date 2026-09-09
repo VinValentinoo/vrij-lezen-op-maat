@@ -7,6 +7,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { ProfileModule } from './modules/profile/profile.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CatalogusModule } from './modules/catalogus/catalogus.module';
+import { AdviesModule } from './modules/advies/advies.module';
 
 // NB: modules/auth, modules/profile, modules/advies, modules/catalogus en
 // modules/leeslijst zijn hier als lege scaffolds neergezet. Elke module krijgt
@@ -21,7 +22,7 @@ import { CatalogusModule } from './modules/catalogus/catalogus.module';
         uri: config.get<string>('MONGODB_URI'),
       }),
     }),
-    PrismaModule, AuthModule, ProfileModule, CatalogusModule],
+    PrismaModule, AuthModule, ProfileModule, CatalogusModule, AdviesModule],
   controllers: [AppController],
   providers: [AppService],
 })
