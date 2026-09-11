@@ -1,0 +1,1466 @@
+[
+  {
+    "titel": "Het dagboek van Anne Frank",
+    "beschrijving": "Dagboek van een Joods meisje dat tijdens de Tweede Wereldoorlog onderduikt in Amsterdam. Haar persoonlijke observaties geven een indringend beeld van angst, hoop, groei en het dagelijks leven onder vervolging.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "WOII",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Blauw Water",
+    "beschrijving": "Spannende thriller waarin een vrouw wordt geconfronteerd met stalking en bedreiging. Terwijl de spanning oploopt, moet zij alles op alles zetten om zichzelf en haar gezin te beschermen.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "spanning",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Boer vindt vrouw",
+    "beschrijving": "Toegankelijk verhaal over liefde, relaties en de zoektocht naar een passende partner. Het plattelandsleven vormt het decor voor herkenbare menselijke ervaringen en keuzes.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "liefde",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Cadeau voor u!",
+    "beschrijving": "Bundel toegankelijke verhalen over verrassende ontmoetingen, kleine gebaren en menselijke verbondenheid. De verhalen laten zien hoe gewone gebeurtenissen een bijzondere betekenis kunnen krijgen.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "ontmoeting",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De biecht",
+    "beschrijving": "Verhaal waarin verborgen geheimen en persoonlijke keuzes centraal staan. Een bekentenis zet gebeurtenissen in gang die grote gevolgen hebben voor betrokkenen.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "geheimen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De familie Blues",
+    "beschrijving": "Humoristische en herkenbare verhalen over familieleden die met elkaar botsen, samenwerken en elkaar nodig hebben. Alledaagse situaties zorgen voor warmte en relativerende humor.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "familie",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De favoriete plekken van...",
+    "beschrijving": "Bekende Nederlanders vertellen over locaties die voor hen een bijzondere betekenis hebben. Persoonlijke herinneringen, reizen en ervaringen komen daarbij samen.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "reizen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De man van de bloemen",
+    "beschrijving": "Ontroerend verhaal over een onverwachte ontmoeting die mensen met elkaar verbindt. Thema’s als aandacht, hoop en menselijkheid spelen een belangrijke rol.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "ontmoeting",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "de ontmoeting",
+    "beschrijving": "Kort verhaal waarin twee mensen elkaar onder bijzondere omstandigheden ontmoeten. Hun gesprek leidt tot nieuwe inzichten en veranderde perspectieven.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "ontmoeting",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De val",
+    "beschrijving": "Indringende novelle over de gevolgen van oorlog, verlies en herinnering. Het verleden blijft doorwerken in het leven van de personages.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "oorlog",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De voorlezer",
+    "beschrijving": "Roman over een bijzondere relatie tussen een jongen en een oudere vrouw. Liefde, schuld en de verwerking van het Duitse oorlogsverleden staan centraal.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "schuld",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De Wandelaar",
+    "beschrijving": "Na een ingrijpende gebeurtenis kijkt een man opnieuw naar zijn leven. Zijn omzwervingen leiden tot reflectie op identiteit, vrijheid en verbondenheid.",
+    "taalniveau": "3F+",
+    "genre": "Boek",
+    "onderwerp": "identiteit",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Een echte man",
+    "beschrijving": "Met humor onderzoekt dit boek verwachtingen rondom mannelijkheid, relaties en ouder worden. De personages zoeken naar geluk en authenticiteit.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "identiteit",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Een goede truc",
+    "beschrijving": "Licht en toegankelijk verhaal waarin slim handelen en creativiteit helpen om problemen op te lossen. Optimisme en doorzettingsvermogen staan centraal.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "creativiteit",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Floortje Dessing reisverhalen",
+    "beschrijving": "Verzameling reisverhalen waarin bijzondere bestemmingen, culturen en ontmoetingen centraal staan. De verhalen bieden inspiratie en een blik op de wereld.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "reizen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Gormah Dade",
+    "beschrijving": "Persoonlijk levensverhaal over veerkracht, doorzetten en het overwinnen van moeilijke omstandigheden. Een inspirerende zoektocht naar een betere toekomst.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "veerkracht",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Haar leven",
+    "beschrijving": "Toegankelijke uitgave over het leven van Anne Frank. Het boek beschrijft haar achtergrond, onderduikperiode en blijvende betekenis voor latere generaties.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "biografie",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Het diner",
+    "beschrijving": "Tijdens een ogenschijnlijk normaal diner komen pijnlijke familiegeheimen aan het licht. Morele dilemma’s en verantwoordelijkheid spelen een centrale rol.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "familie",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Het Rosieproject",
+    "beschrijving": "Een sociaal onhandige hoogleraar ontwikkelt een wetenschappelijk plan om een partner te vinden. Zijn leven verandert door onverwachte liefde.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "liefde",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Het verhaal van een vechter",
+    "beschrijving": "Waargebeurd verhaal over iemand die ondanks tegenslagen blijft vechten voor een betere toekomst. Hoop en doorzettingsvermogen vormen de rode draad.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "doorzetten",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Ik omhels je met 1000 armen",
+    "beschrijving": "Na het overlijden van zijn moeder probeert een jonge man zijn verlies te verwerken. Herinneringen, verdriet en liefde lopen door elkaar heen.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "rouw",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "In één klap",
+    "beschrijving": "Verhaal over migratie, verlies en het opnieuw opbouwen van een bestaan. Het laat zien hoe ingrijpende gebeurtenissen een leven kunnen veranderen.",
+    "taalniveau": "2F-3F",
+    "genre": "Boek",
+    "onderwerp": "migratie",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Joe Speedboot",
+    "beschrijving": "Vriendschap, ambitie en inventiviteit staan centraal in dit coming-of-ageverhaal. Een groep jongeren zoekt zijn weg in een landelijke omgeving.",
+    "taalniveau": "3F+",
+    "genre": "Boek",
+    "onderwerp": "vriendschap",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Joe Speedboot (makkelijk)",
+    "beschrijving": "Vereenvoudigde versie van de bekende roman over vriendschap, avontuur en zelfontdekking. Geschikt voor lezers die extra toegankelijk leesmateriaal zoeken.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "vriendschap",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Komt een vrouw bij de dokter",
+    "beschrijving": "Aangrijpende roman over liefde, ontrouw en ziekte. De relatie van een echtpaar wordt zwaar op de proef gesteld.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "liefde",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Mevrouw mijn moeder",
+    "beschrijving": "Persoonlijke en vaak humoristische herinneringen aan een eigenzinnige moeder. Familiebanden en generatieverschillen staan centraal.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "familie",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Mijn favoriete recept",
+    "beschrijving": "Bekende Nederlanders delen favoriete recepten, herinneringen en persoonlijke verhalen. Eten vormt de aanleiding voor herkenbare levensverhalen.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "eten",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Moeder mijn vrouw",
+    "beschrijving": "Verhalen over familie, zorg en verbondenheid. De auteur beschrijft relaties tussen ouders, kinderen en partners met veel herkenning.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "familie",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Moeder worden, moeder zijn",
+    "beschrijving": "Persoonlijke verhalen en reflecties over zwangerschap, opvoeding en moederschap. De uitdagingen en mooie momenten komen uitgebreid aan bod.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "moederschap",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Naar de haaien",
+    "beschrijving": "Humoristische en vlot geschreven verhalen over bijzondere ervaringen, mediaoptredens en onverwachte gebeurtenissen uit het leven van de auteur.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "humor",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Sherlock Holmes wereldverhalen",
+    "beschrijving": "Bundel klassieke detectiveverhalen waarin Sherlock Holmes ingewikkelde mysteries oplost met scherpzinnige observaties, logica en oog voor detail. De verhalen bieden spanning en een inkijkje in het Victoriaanse Engeland.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "mysterie",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Sonny Boy (makkelijk)",
+    "beschrijving": "Vereenvoudigde versie van het waargebeurde verhaal over een verboden liefde in oorlogstijd. Moed, doorzettingsvermogen en menselijkheid staan centraal in deze toegankelijke bewerking.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "oorlog",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Sonny Boy",
+    "beschrijving": "Waargebeurde roman over de liefde tussen Rika en Waldemar. Hun relatie wordt zwaar beproefd door maatschappelijke vooroordelen en de Tweede Wereldoorlog.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "oorlog",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Terug naar school",
+    "beschrijving": "Toegankelijk verhaal over volwassenen die opnieuw onderwijs volgen. Het boek laat zien hoe leren kansen biedt voor persoonlijke groei en een nieuwe toekomst.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "onderwijs",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Twee Vrouwen",
+    "beschrijving": "Psychologische roman over liefde, verlangen en verlies. Complexe relaties en emotionele afhankelijkheid zetten de levens van de hoofdpersonen onder druk.",
+    "taalniveau": "3F+",
+    "genre": "Boek",
+    "onderwerp": "liefde",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Vrienden voor het leven",
+    "beschrijving": "Waargebeurd verhaal over een bijzondere vriendschap tussen twee mannen uit totaal verschillende werelden. Hun band verandert hun kijk op het leven.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "vriendschap",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Zomerhuis met zwembad",
+    "beschrijving": "Een huisarts raakt betrokken bij een tragedie binnen een welgestelde vriendenkring. Schuld, macht en morele verantwoordelijkheid spelen een belangrijke rol.",
+    "taalniveau": "3F+",
+    "genre": "Boek",
+    "onderwerp": "moraal",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Libello voor mannen",
+    "beschrijving": "Toegankelijk tijdschrift voor laaggeletterde lezers met artikelen over gezondheid, relaties, werk en dagelijkse onderwerpen.",
+    "taalniveau": "3F",
+    "genre": "Tijdschrift",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Libello voor vrouwen",
+    "beschrijving": "Toegankelijk tijdschrift voor laaggeletterde lezers met artikelen over gezondheid, gezin, vrije tijd en maatschappelijke onderwerpen.",
+    "taalniveau": "3F",
+    "genre": "Tijdschrift",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "De Startkrant",
+    "beschrijving": "Eenvoudig geschreven krant met actueel nieuws en achtergrondinformatie, speciaal ontwikkeld voor beginnende en minder ervaren lezers.",
+    "taalniveau": "3F",
+    "genre": "Krant",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "De Startweekkrant",
+    "beschrijving": "Wekelijkse digitale krant met begrijpelijke artikelen over actualiteit, samenleving en praktische onderwerpen voor volwassenen.",
+    "taalniveau": "3F",
+    "genre": "Krant",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Ik zal je vinden",
+    "beschrijving": "Historische jeugdroman over moed, familie en overleven tijdens de Tweede Wereldoorlog. Geheimen uit het verleden bepalen de keuzes van de hoofdpersonen.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "oorlog",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De aankomst",
+    "beschrijving": "Verhaal over een nieuw begin, afscheid en het zoeken naar een plek in een onbekende omgeving. Doorzettingsvermogen en hoop staan centraal.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "migratie",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Ode aan de verwondering",
+    "beschrijving": "Filosofische beschouwingen over nieuwsgierigheid, verwondering en een betekenisvol leven. Het boek nodigt uit om anders naar de wereld te kijken.",
+    "taalniveau": "3F+",
+    "genre": "Boek",
+    "onderwerp": "filosofie",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Hotel rozenstok",
+    "beschrijving": "Roman waarin uiteenlopende levens elkaar kruisen op een bijzondere locatie. Verlangen, persoonlijke keuzes en menselijke relaties vormen de rode draad.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "relaties",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De jongen in de gestreepte pyjama",
+    "beschrijving": "Ontroerend verhaal over de vriendschap tussen twee jongens aan weerszijden van een concentratiekamp tijdens de Tweede Wereldoorlog.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "oorlog",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De Macht (Nederlandse vertaling)",
+    "beschrijving": "Dystopische roman waarin vrouwen plotseling een nieuwe fysieke macht ontwikkelen. Het verhaal onderzoekt macht, ongelijkheid en maatschappelijke veranderingen.",
+    "taalniveau": "3F+",
+    "genre": "Boek",
+    "onderwerp": "macht",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Fake Skating",
+    "beschrijving": "Romantisch verhaal waarin een schijnrelatie onverwacht echte gevoelens oproept. Liefde, sport en zelfontdekking komen op toegankelijke wijze samen.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "liefde",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De vijf die blijven",
+    "beschrijving": "Spannende thriller vol geheimen, vriendschap en onverwachte wendingen. Een schokkende gebeurtenis brengt verborgen waarheden aan het licht.",
+    "taalniveau": "3F",
+    "genre": "Boek - thriller",
+    "onderwerp": "thriller",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Pizzamaffia slaat door",
+    "beschrijving": "Humoristisch en spannend verhaal over jongeren die in de problemen raken door criminaliteit. Loyaliteit, keuzes en verantwoordelijkheid staan centraal.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "criminaliteit",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Honderd: wat het leven je leert",
+    "beschrijving": "Bijzondere illustraties en korte teksten brengen levenslessen samen. Het boek nodigt uit tot nadenken over ouder worden en levenswijsheid.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "levenslessen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Moordgids voor lieve meisjes",
+    "beschrijving": "Een scholier onderzoekt een oude moordzaak en ontdekt dat niet alles is zoals het lijkt. Spannende youngadultthriller met veel verrassingen.",
+    "taalniveau": "3F",
+    "genre": "Boek - thriller",
+    "onderwerp": "thriller",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Blauwe plekken",
+    "beschrijving": "Indringend verhaal over huiselijk geweld en de gevolgen daarvan voor een jong meisje. Moed en veerkracht spelen een belangrijke rol.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "huiselijk geweld",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Dode meisjes praten niet",
+    "beschrijving": "Thriller waarin een ogenschijnlijk afgesloten zaak nieuwe vragen oproept. Geheimen uit het verleden zorgen voor toenemende spanning.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "thriller",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Vals nest",
+    "beschrijving": "Jeugdroman over familiebanden, identiteit en de zoektocht naar je eigen plek. Geheimen uit het verleden beïnvloeden het heden.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "identiteit",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Voor altijd jong (mijn leven met kanker)",
+    "beschrijving": "Persoonlijk en aangrijpend verhaal over leven met kanker. De auteur deelt openhartig ervaringen, uitdagingen en momenten van hoop.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "ziekte",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Vals",
+    "beschrijving": "Spannende thriller waarin vertrouwen, bedrog en geheimen centraal staan. Een onschuldige situatie loopt uit op gevaarlijke gebeurtenissen.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "thriller",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "De macht",
+    "beschrijving": "Dystopische roman waarin traditionele machtsverhoudingen verschuiven. Het verhaal onderzoekt de invloed van macht op individuen en samenlevingen.",
+    "taalniveau": "3F+",
+    "genre": "Boek",
+    "onderwerp": "macht",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Six more months of June",
+    "beschrijving": "Romantisch verhaal over liefde, timing en persoonlijke groei. Twee jongeren proberen hun gevoelens en toekomstplannen met elkaar te verenigen.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "liefde",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Op zoek naar mijn pad",
+    "beschrijving": "Inspirerend verhaal over identiteit, ambitie en doorzettingsvermogen. De auteur beschrijft haar persoonlijke zoektocht naar betekenis en verandering.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "identiteit",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Lord of the flies",
+    "beschrijving": "Graphic novelbewerking van het beroemde verhaal over een groep gestrande jongens. Macht, groepsdruk en beschaving worden op de proef gesteld.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "macht",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Nog net niet dood",
+    "beschrijving": "Spannende thriller waarin een jonge onderzoeker een mysterieuze zaak probeert op te lossen. De waarheid blijkt gevaarlijk dichtbij.",
+    "taalniveau": "3F",
+    "genre": "Boek - thriller",
+    "onderwerp": "thriller",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Recht op geluk",
+    "beschrijving": "Positief en inspirerend boek over geluk, veerkracht en welzijn. Het biedt inzichten en praktische ideeën voor een betekenisvol leven.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "geluk",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De rechtsstaat moet je leren",
+    "beschrijving": "Toegankelijk boek over democratie, rechtspraak en burgerschap. Het laat zien waarom kennis van de rechtsstaat belangrijk is voor iedereen.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "recht",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Rosa Parks",
+    "beschrijving": "Toegankelijke biografie over Rosa Parks, wier weigering om haar zitplaats af te staan uitgroeide tot een belangrijk moment in de strijd tegen racisme en gelijke rechten.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Moordonderzoek",
+    "beschrijving": "Interactieve detective waarin de lezer aanwijzingen onderzoekt, verdachten analyseert en stap voor stap een complexe misdaad probeert op te lossen.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Zonder spijt",
+    "beschrijving": "Spannende detectiveroman waarin een onderzoek steeds meer verborgen motieven en geheimen blootlegt. De zoektocht naar de waarheid staat centraal.",
+    "taalniveau": "3F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Het geluid van de stilte",
+    "beschrijving": "Persoonlijk relaas over rechtspraak, media-aandacht en maatschappelijke discussies. Reflecties op keuzes, verantwoordelijkheid en publieke beeldvorming lopen door het verhaal.",
+    "taalniveau": "3F+",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De zaak Ridouan T.",
+    "beschrijving": "Non-fictieboek over georganiseerde criminaliteit in Nederland. Het beschrijft achtergronden, ontwikkelingen en de impact van een geruchtmakende strafzaak.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Het Proces",
+    "beschrijving": "Klassieke roman waarin een man zonder duidelijke reden wordt vervolgd. Machteloosheid, bureaucratie en vervreemding vormen de kern van het verhaal.",
+    "taalniveau": "3F+",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De zweetvoetenman",
+    "beschrijving": "Toegankelijk en informatief boek dat jongeren laat kennismaken met rechtspraak, wetten en juridische dilemma’s aan de hand van herkenbare voorbeelden.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Goed Verzekerd",
+    "beschrijving": "Praktisch verhaal over financiële keuzes, risico’s en verantwoordelijkheid. Toegankelijke voorbeelden maken complexe onderwerpen begrijpelijk.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De strafzaak tegen Willem Holleeder",
+    "beschrijving": "Reconstructie van een van de bekendste Nederlandse strafzaken. Het boek belicht onderzoek, bewijsvoering en de werking van het rechtssysteem.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Wie zit in de gevangenis? En andere bijzondere weetjes over misdaad en straf.",
+    "beschrijving": "Informatief boek vol verrassende feiten over criminaliteit, straffen en gevangenissen. Complexe onderwerpen worden helder en toegankelijk uitgelegd.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Het laatste woord",
+    "beschrijving": "Indringend waargebeurd verhaal over opgroeien binnen de jeugdzorg. Veerkracht, identiteit en de zoektocht naar een veilige toekomst staan centraal.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Mooie Mauti",
+    "beschrijving": "Aangrijpend verhaal over verslaving, criminaliteit en persoonlijke keuzes. De hoofdpersoon probeert ondanks moeilijke omstandigheden zijn leven richting te geven.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De gelukvinder",
+    "beschrijving": "Ontroerend verhaal over een vluchteling die een nieuw bestaan probeert op te bouwen. Hoop, vriendschap en menselijkheid spelen een belangrijke rol.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Latino King",
+    "beschrijving": "Waargebeurd verhaal dat inzicht geeft in jeugdcriminaliteit, groepsdruk en de gevolgen van keuzes. Een indringend portret van een jonge dader.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Zusje",
+    "beschrijving": "Verhaal over verlies, familiebanden en geloof. De personages zoeken naar manieren om verdriet te verwerken en opnieuw houvast te vinden.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Voor jou tien anderen",
+    "beschrijving": "Jeugdroman over pleegzorg, verwaarlozing en de behoefte aan geborgenheid. Het verhaal laat zien hoe belangrijk vertrouwen kan zijn.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De roadtrip",
+    "beschrijving": "Tijdens een reis worden verschillende generaties geconfronteerd met hun verwachtingen, verschillen en dromen. Humor en herkenning gaan hand in hand.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Badjens",
+    "beschrijving": "Roman over moedige vrouwen die zich verzetten tegen onderdrukking. Vrijheid, solidariteit en persoonlijke offers vormen belangrijke thema’s.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Het blauw van de oceaan",
+    "beschrijving": "Actuele roman over identiteit, discriminatie en de zoektocht naar een veilige plek in de wereld. Liefde en familie spelen mee.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Impact",
+    "beschrijving": "Spannend verhaal waarin jongeren te maken krijgen met oorlog, geweld en moeilijke keuzes. Overleven en veerkracht staan centraal.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Het meisje dat er niet mocht zijn",
+    "beschrijving": "Historische roman over een jong meisje tijdens de Tweede Wereldoorlog. Geheimen, moed en overlevingskracht bepalen haar lot.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Soundtrack",
+    "beschrijving": "Coming-of-ageverhaal waarin muziek een belangrijke rol speelt. Vriendschap, talent en het vinden van een eigen stem staan centraal.",
+    "taalniveau": "2F-3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Kade 17",
+    "beschrijving": "Jeugdthriller over drugscriminaliteit, verleiding en gevaar. Jongeren raken betrokken bij gebeurtenissen die steeds grotere gevolgen krijgen.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Het geheim. Vijf generaties, één verleden",
+    "beschrijving": "Familieverhaal waarin meerdere generaties worden verbonden door een verborgen geschiedenis. Het verleden werkt door in het heden.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Klopjacht",
+    "beschrijving": "Spannend verhaal over opsporing, onderzoek en achtervolging. Personages moeten onder grote druk belangrijke beslissingen nemen.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Hoe ik talent voor het leven kreeg",
+    "beschrijving": "Roman over migratie, integratie en doorzettingsvermogen. Met humor en zelfspot beschrijft de auteur zijn weg naar een nieuw leven.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Het kan ook nooit normaal",
+    "beschrijving": "Persoonlijke verhalen uit de politiepraktijk laten zien hoe complex, verrassend en menselijk het dagelijks werk van agenten is.",
+    "taalniveau": "2F-3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Held in eigen verhaal",
+    "beschrijving": "Bundel waargebeurde overlevingsverhalen van mensen die moeilijke omstandigheden hebben overwonnen. Inspiratie en veerkracht staan centraal.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De vrolijke advocaat",
+    "beschrijving": "Toegankelijke inkijk in het werk van een advocaat. Juridische dilemma’s en praktijkvoorbeelden worden helder en vaak humoristisch beschreven.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Drop dead famous",
+    "beschrijving": "Youngadultthriller waarin roem, muziek en misdaad samenkomen. Geheimen en onverwachte gebeurtenissen zorgen voor een hoog spanningsniveau.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Waar ben je?",
+    "beschrijving": "Een jeugdroman over vriendschap, familiebanden en een onverwacht mysterie. Tijdens haar zoektocht ontdekt de hoofdpersoon dat niet iedereen is wie hij lijkt te zijn.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Oxford Blood",
+    "beschrijving": "Spannende thriller die zich afspeelt in een academische omgeving. Geheimen, rivaliteit en gevaar zorgen ervoor dat niets is wat het lijkt.",
+    "taalniveau": "3F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Confrontaties",
+    "beschrijving": "Indringende roman over identiteit, woede en zelfbeheersing. Een jonge vrouw worstelt met haar verleden, relaties en haar plek in de samenleving.",
+    "taalniveau": "3F+",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Beth is dead",
+    "beschrijving": "Thriller waarin een sterfgeval een reeks verborgen geheimen blootlegt. Vrienden en bekenden blijken meer te weten dan zij willen toegeven.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Gamechanger",
+    "beschrijving": "Een jongen ontdekt hoe kleine veranderingen grote gevolgen hebben voor zijn leven. Het verhaal onderzoekt vooroordelen, privileges en maatschappelijke ongelijkheid.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "The hate u give",
+    "beschrijving": "Aangrijpende youngadultroman over racisme, politiegeweld en maatschappelijke ongelijkheid. Een tienermeisje wordt geconfronteerd met de gevolgen van een schokkende gebeurtenis.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De erfenis 1",
+    "beschrijving": "Een onverwachte nalatenschap brengt een jong meisje terecht in een wereld vol puzzels, familiegeheimen en gevaarlijke intriges.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De verloren erfgenaam 2",
+    "beschrijving": "Vervolg waarin nieuwe aanwijzingen leiden naar verborgen familiegeschiedenissen. Vertrouwen, verraad en macht spelen een steeds grotere rol.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De laatste zet",
+    "beschrijving": "Het slot van een spannende serie waarin geheimen worden onthuld en ingewikkelde puzzels eindelijk samenkomen.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Feilloos",
+    "beschrijving": "Romantische roman over aantrekkingskracht, vertrouwen en persoonlijke groei. Twee mensen ontdekken dat liefde vaak ingewikkelder is dan verwacht.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Deze zomer wordt echt anders",
+    "beschrijving": "Zomerse roman waarin liefde, herinneringen en nieuwe keuzes samenkomen. Een vakantie verandert het leven van de hoofdpersoon voorgoed.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Heated Rivalry",
+    "beschrijving": "Romantisch verhaal over rivaliteit, ambitie en verboden gevoelens. Twee topsporters ontdekken dat competitie en liefde moeilijk te scheiden zijn.",
+    "taalniveau": "3F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "One of us is lying",
+    "beschrijving": "Populaire thriller waarin vijf leerlingen een straf uitzitten, maar slechts vier het lokaal verlaten. Iedereen heeft iets te verbergen.",
+    "taalniveau": "3F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Shoot-out",
+    "beschrijving": "Jeugdthriller vol spanning en onverwachte gebeurtenissen. Jongeren raken verstrikt in een situatie die steeds gevaarlijker wordt.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Payback",
+    "beschrijving": "Vlot geschreven thriller over wraak, keuzes en consequenties. Een ogenschijnlijk eenvoudige situatie loopt volledig uit de hand.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Kater",
+    "beschrijving": "Spannende youngadultthriller waarin een feest onverwachte gevolgen heeft. Geheimen en schuldgevoelens zorgen voor groeiende spanning.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "De open era",
+    "beschrijving": "Roman over sport, ambitie en identiteit. De hoofdpersoon probeert persoonlijke doelen en relaties in balans te brengen.",
+    "taalniveau": "2F-3F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Jimi Fender Johnson",
+    "beschrijving": "Ontroerend verhaal over muziek, identiteit en jezelf durven zijn. Vriendschap en acceptatie spelen een belangrijke rol.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Bewijs het maar",
+    "beschrijving": "Romantisch verhaal vol misverstanden, aantrekkingskracht en persoonlijke ontwikkeling. De hoofdpersonen leren elkaar én zichzelf beter kennen.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Je hebt een nieuwe volger",
+    "beschrijving": "Actuele thriller over sociale media, online gedrag en stalking. Een onschuldige melding groeit uit tot een bedreigende situatie.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Jonas",
+    "beschrijving": "Toegankelijk verhaal over voetbal, ambitie en doorzettingsvermogen. De hoofdpersoon leert omgaan met tegenslagen en verwachtingen.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Liften naar de hemel",
+    "beschrijving": "Roman over geloof, identiteit en de zoektocht naar betekenis. De personages worden geconfronteerd met belangrijke levensvragen.",
+    "taalniveau": "3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Nog 27 dagen leven",
+    "beschrijving": "Aangrijpend verhaal over vriendschap, ziekte en de waarde van tijd. De personages proberen het meeste uit hun leven te halen.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Heartstopper 1",
+    "beschrijving": "Graphic novel over vriendschap die uitgroeit tot verliefdheid. Een warm verhaal over jezelf durven zijn en acceptatie.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Heartstopper 2",
+    "beschrijving": "Vervolg waarin relaties verder groeien en nieuwe uitdagingen ontstaan. Vertrouwen, identiteit en verbondenheid staan centraal.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Heartstopper 3",
+    "beschrijving": "De personages krijgen te maken met persoonlijke groei, vriendschap en liefde. Een positief verhaal over steun en acceptatie.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Niet mijn naam",
+    "beschrijving": "Spannende thriller waarin een meisje probeert te achterhalen wat er met haar is gebeurd. Geheimen en onverwachte onthullingen volgen elkaar op.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Mijn naam is Edino",
+    "beschrijving": "Persoonlijk verhaal over opgroeien in een uitzonderlijke gezinssituatie. Veerkracht en de zoektocht naar een eigen identiteit staan centraal.",
+    "taalniveau": "2F-3F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Moordnacht",
+    "beschrijving": "Jeugdthriller waarin een spannende nacht uitloopt op een gevaarlijk mysterie. De waarheid blijkt dichterbij dan gedacht.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "No escape",
+    "beschrijving": "Thriller waarin personages vast komen te zitten in een benauwende situatie. Angst, vertrouwen en overleven spelen een grote rol.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Game on",
+    "beschrijving": "Jeugdthriller waarin spanning, geheimen en onverwachte gebeurtenissen elkaar snel opvolgen. De hoofdpersonen moeten samenwerken om een gevaarlijke situatie het hoofd te bieden.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Lief meisje kwaad bloed",
+    "beschrijving": "Vervolg op een populaire thrillerreeks waarin een jonge onderzoeker opnieuw verstrikt raakt in een complexe zaak vol geheimen en risico’s.",
+    "taalniveau": "3F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Zo lief als de dood",
+    "beschrijving": "Spannende youngadultthriller waarin niets is wat het lijkt. Verborgen motieven en onverwachte onthullingen zorgen voor voortdurende spanning.",
+    "taalniveau": "3F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Zweer het me",
+    "beschrijving": "Romantische roman over liefde, vertrouwen en loyaliteit. De hoofdpersonen worden geconfronteerd met moeilijke keuzes die hun toekomst bepalen.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Sterren verpakt in huid",
+    "beschrijving": "Indringende roman over identiteit, familie en persoonlijke groei. De personages zoeken naar verbinding en betekenis in een complexe wereld.",
+    "taalniveau": "3F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Missie Chinook",
+    "beschrijving": "Non-fictieverhaal over de luchtmacht en internationale missies. Het boek biedt inzicht in teamwork, verantwoordelijkheid en dienstbaarheid.",
+    "taalniveau": "2F",
+    "genre": "Boek",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Alle regels overboord",
+    "beschrijving": "Romantisch verhaal waarin liefde en persoonlijke vrijheid centraal staan. De hoofdpersonen ontdekken dat niet alles volgens plan verloopt.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Verlangen naar onschuld",
+    "beschrijving": "Psychologische thriller over familie, trauma en verborgen waarheden. Het verhaal onderzoekt de gevolgen van ingrijpende gebeurtenissen.",
+    "taalniveau": "3F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Slaap zacht",
+    "beschrijving": "Thriller waarin spanning langzaam wordt opgebouwd en een reeks gebeurtenissen leidt tot een onverwachte ontknoping.",
+    "taalniveau": "2F-3F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Gegijzeld",
+    "beschrijving": "Actuele jeugdthriller waarin jongeren te maken krijgen met een gevaarlijke situatie. Moed, samenwerking en doorzettingsvermogen zijn essentieel.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "24 uur",
+    "beschrijving": "Vlot geschreven thriller waarin de personages onder grote tijdsdruk belangrijke keuzes moeten maken. Iedere beslissing heeft gevolgen.",
+    "taalniveau": "2F",
+    "genre": "Boek - thriller",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Full measures",
+    "beschrijving": "Romantische roman over liefde, verlies en herstel. De hoofdpersonen proberen ondanks tegenslagen opnieuw richting aan hun leven te geven.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De deal",
+    "beschrijving": "Populaire newadultroman waarin een onverwachte afspraak leidt tot groeiende gevoelens. Humor, romantiek en persoonlijke ontwikkeling staan centraal.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "De fout",
+    "beschrijving": "Vervolgroman over relaties, vertrouwen en de gevolgen van gemaakte keuzes. De personages worden geconfronteerd met hun kwetsbaarheden.",
+    "taalniveau": "2F",
+    "genre": "Boek - roman",
+    "onderwerp": "algemeen",
+    "lengte": "Lang"
+  },
+  {
+    "titel": "Beschermt deze AI-wet binnenkort jouw belangrijkste rechten, of is dat ijdele hoop?",
+    "beschrijving": "AI, wetgeving, grondrechten",
+    "taalniveau": "3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Vanaf 2 augustus wordt duidelijker of het AI is of echt",
+    "beschrijving": "AI, privacy, deepfakes",
+    "taalniveau": "3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Transparantie-eisen voor AI: wat betekent dit voor u?",
+    "beschrijving": "AI-verordening, rechten van burgers",
+    "taalniveau": "3F+",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "AI-verordening",
+    "beschrijving": "Europese AI-wetgeving",
+    "taalniveau": "3F+",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "AP: AI-Impactbarometer kleurt rood, actie is noodzakelijk",
+    "beschrijving": "AI, toezicht, discriminatie, recht",
+    "taalniveau": "3F+",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Wat is een rechtsstaat?",
+    "beschrijving": "Rechtsstaat, grondrechten, democratie",
+    "taalniveau": "2F-3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Zorgen om jonge cybercriminelen met wapens: 'Dringend bredere aanpak nodig'",
+    "beschrijving": "Criminaliteit, cybercrime, jeugdcriminaliteit",
+    "taalniveau": "3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Europol lanceert taskforce tegen online werving van jongeren door criminelen",
+    "beschrijving": "Criminaliteit, online ronselen",
+    "taalniveau": "3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Dit zijn de jongeren achter online oplichting: 'Het is een soort hype'",
+    "beschrijving": "Fraude, cybercrime, strafrecht",
+    "taalniveau": "3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Gaat AI een rol spelen in de rechtspraak?",
+    "beschrijving": "Rechtspraak, AI, juridische innovatie",
+    "taalniveau": "3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "UWV: aantal banen groeit nauwelijks meer tot 2027",
+    "beschrijving": "Werkgelegenheid, arbeidsmarkt",
+    "taalniveau": "3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Werkenden én gepensioneerden houden Nederlandse economie op de been",
+    "beschrijving": "Economie",
+    "taalniveau": "3F+",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "CPB: het gaat goed met de Nederlandse economie, maar de staatsschuld gaat oplopen",
+    "beschrijving": "Economie, overheid",
+    "taalniveau": "3F+",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Gebruik AI in het onderwijs",
+    "beschrijving": "AI, onderwijs",
+    "taalniveau": "3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Nieuwe stap bij vernieuwing van curriculum",
+    "beschrijving": "Onderwijs, burgerschap, AI",
+    "taalniveau": "3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Europese verboden op ongewenste AI-toepassingen ingegaan",
+    "beschrijving": "AI, samenleving",
+    "taalniveau": "3F+",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "De wondere wereld van nachtvlinders",
+    "beschrijving": "Natuur",
+    "taalniveau": "2F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Boeren geven de zwarte stern vleugels in de Utrechtse Venen",
+    "beschrijving": "Natuur, biodiversiteit",
+    "taalniveau": "2F-3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Tekorten zorgpersoneel nemen sneller toe, 'hoogste prioriteit' minister Agema",
+    "beschrijving": "Zorg, arbeidsmarkt",
+    "taalniveau": "3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Nieuwe generatie fysiotherapeuten valt uit na enkele jaren",
+    "beschrijving": "Fysiotherapie, zorg",
+    "taalniveau": "3F",
+    "genre": "Online artikel",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Jij bent de liefste",
+    "beschrijving": "Familie, vriendschap, gevoelens",
+    "taalniveau": "2F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Kom maar op, ik ben top",
+    "beschrijving": "Zelfvertrouwen, opgroeien, school",
+    "taalniveau": "2F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Droom in blauwe regenjas",
+    "beschrijving": "Herinneringen, gevoelens, identiteit",
+    "taalniveau": "2F-3F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Stel dat ik",
+    "beschrijving": "Identiteit, dromen, verlangen",
+    "taalniveau": "3F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Neem de tijd",
+    "beschrijving": "Dagelijks leven, mensen, verwondering",
+    "taalniveau": "2F-3F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Habitus",
+    "beschrijving": "Identiteit, migratie, kansenongelijkheid",
+    "taalniveau": "3F+",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Fantoommerrie",
+    "beschrijving": "Opgroeien, familie, mentale gezondheid",
+    "taalniveau": "3F+",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Doe het toch maar",
+    "beschrijving": "Liefde, werk, dagelijkse leven",
+    "taalniveau": "3F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Neem en lees",
+    "beschrijving": "Recht, menselijk gedrag, samenleving",
+    "taalniveau": "3F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Mensen zonder uitstraling",
+    "beschrijving": "Werk, stad, maatschappij",
+    "taalniveau": "3F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Veldwerk",
+    "beschrijving": "Cultuur, identiteit, familie",
+    "taalniveau": "3F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Kameleon",
+    "beschrijving": "Diversiteit, burgerschap, identiteit",
+    "taalniveau": "3F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "De zee is een hond",
+    "beschrijving": "Onderwijs, jongeren, kansen",
+    "taalniveau": "3F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "We zijn evenwijdig",
+    "beschrijving": "Communicatie, taal, ontmoeting",
+    "taalniveau": "3F",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Ademgebed",
+    "beschrijving": "Identiteit, cultuur, religie, samenleving",
+    "taalniveau": "3F+",
+    "genre": "Dichtbundel",
+    "onderwerp": "algemeen",
+    "lengte": "Middel"
+  },
+  {
+    "titel": "Wat betekent de AVG voor jou?",
+    "beschrijving": "Privacy, persoonsgegevens, recht",
+    "taalniveau": "3F",
+    "genre": "Blogpost",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Vanaf 2 augustus wordt duidelijker of het AI is of echt",
+    "beschrijving": "AI, deepfakes, consumentenrecht",
+    "taalniveau": "3F",
+    "genre": "Blogpost",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Wat is een rechtsstaat?",
+    "beschrijving": "Rechtsstaat, democratie, burgerschap",
+    "taalniveau": "2F-3F",
+    "genre": "Blogpost",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Transparantie-eisen voor AI: wat betekent dit voor u?",
+    "beschrijving": "AI-wetgeving, rechten van burgers",
+    "taalniveau": "3F+",
+    "genre": "Blogpost",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Gaat AI een rol spelen in de rechtspraak?",
+    "beschrijving": "Rechtspraak, technologie, AI",
+    "taalniveau": "3F",
+    "genre": "Blogpost",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Werk vinden in Nederland",
+    "beschrijving": "Werk, solliciteren, taal leren",
+    "taalniveau": "2F",
+    "genre": "Blogpost",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Hoe werkt DigiD?",
+    "beschrijving": "Overheid, administratie, digitalisering",
+    "taalniveau": "2F",
+    "genre": "Blogpost",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Geldzaken regelen in Nederland",
+    "beschrijving": "Financiën, administratie",
+    "taalniveau": "2F",
+    "genre": "Blogpost",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Wat is een rechtsstaat?",
+    "beschrijving": "Burgerschap, Nederland",
+    "taalniveau": "2F-3F",
+    "genre": "Blogpost",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  },
+  {
+    "titel": "Nieuwe stap bij vernieuwing van curriculum",
+    "beschrijving": "Onderwijs, burgerschap, AI",
+    "taalniveau": "3F",
+    "genre": "Blogpost",
+    "onderwerp": "algemeen",
+    "lengte": "Kort"
+  }
+]

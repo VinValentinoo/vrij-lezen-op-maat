@@ -1,7 +1,6 @@
 'use client';
 
 import { apiFetch } from "@/lib/api-client";
-import { getToken } from "@/lib/cookies";
 import { useEffect, useState } from "react";
 
 type Profile = {
@@ -93,12 +92,13 @@ export default function ProfielPage() {
                             id="taalniveau"
                             value={profile.taalniveau}
                             onChange={(e) => setProfile({ ...profile, taalniveau: e.target.value })}
+                            required
                         >
-                            <option value="">Alle</option>
-                            <option value="A2">A2</option>
-                            <option value="B1">B1</option>
-                            <option value="B2">B2</option>
-                            <option value="C1">C1</option>
+                            <option value="" disabled>Maak een keuze</option>
+                            <option value="2F">2F</option>
+                            <option value="2F-3F">2F-3F</option>
+                            <option value="3F">3F</option>
+                            <option value="3F+">3F+</option>
                         </select>
                     </div>
 
@@ -108,12 +108,17 @@ export default function ProfielPage() {
                             id="genre"
                             value={profile.genre}
                             onChange={(e) => setProfile({ ...profile, genre: e.target.value })}
+                            required
                         >
-                            <option value="">Alle</option>
-                            <option value="Drama">Drama</option>
-                            <option value="Thriller">Thriller</option>
-                            <option value="Romantiek">Romantiek</option>
-                            <option value="Avontuur">Avontuur</option>
+                            <option value="" disabled>Maak een keuze</option>
+                            <option value="Boek">Boek</option>
+                            <option value="Boek - thriller">Boek - thriller</option>
+                            <option value="Boek - roman">Boek - roman</option>
+                            <option value="Dichtbundel">Dichtbundel</option>
+                            <option value="Blogpost">Blogpost</option>
+                            <option value="Online artikel">Online artikel</option>
+                            <option value="Krant">Krant</option>
+                            <option value="Tijdschrift">Tijdschrift</option>
                         </select>
                     </div>
 
@@ -123,11 +128,20 @@ export default function ProfielPage() {
                             id="onderwerp"
                             value={profile.onderwerp}
                             onChange={(e) => setProfile({ ...profile, onderwerp: e.target.value })}
+                            required
                         >
-                            <option value="">Alle</option>
-                            <option value="Familie">Familie</option>
-                            <option value="Mysterie">Mysterie</option>
-                            <option value="Liefde">Liefde</option>
+                            <option value="" disabled>Maak een keuze</option>
+                            <option value="algemeen">Algemeen</option>
+                            <option value="liefde">Liefde</option>
+                            <option value="oorlog">Oorlog</option>
+                            <option value="thriller">Thriller</option>
+                            <option value="familie">Familie</option>
+                            <option value="identiteit">Identiteit</option>
+                            <option value="ontmoeting">Ontmoeting</option>
+                            <option value="vriendschap">Vriendschap</option>
+                            <option value="macht">Macht</option>
+                            <option value="reizen">Reizen</option>
+                            <option value="migratie">Migratie</option>
                         </select>
                     </div>
 
@@ -137,8 +151,9 @@ export default function ProfielPage() {
                             id="lengte"
                             value={profile.lengte}
                             onChange={(e) => setProfile({...profile, lengte: e.target.value})}
+                            required
                         >
-                            <option value="">Alle</option>
+                            <option value="" disabled>Maak een keuze</option>
                             <option value="Kort">Kort</option>
                             <option value="Middel">Middel</option>
                             <option value="Lang">Lang</option>
