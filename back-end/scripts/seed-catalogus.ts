@@ -1,7 +1,11 @@
 import 'dotenv/config';
 import mongoose from 'mongoose';
+import * as fs from 'fs';
+import * as path from 'path';
 import { CatalogusItem, CatalogusItemSchema } from '../src/modules/catalogus/schemas/catalogus-item.schema';
-import catalogusData from './catalogus-data.json';
+
+const catalogusDataPath = path.join(__dirname, 'catalogus-data.json');
+const catalogusData = JSON.parse(fs.readFileSync(catalogusDataPath, 'utf-8'));
 
 async function seed() {
     const uri = process.env.MONGODB_URI;
