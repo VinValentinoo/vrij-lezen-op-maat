@@ -4,5 +4,5 @@ import { ApiProperty } from '@nestjs/swagger';
 export class AddLeeslijstItemDto {    
     @ApiProperty({ description: 'Catalogus Item Id', required: true})
     @IsMongoId()
-    CatalogusItemid!: string;
+    catalogusItemId!: string;
 }

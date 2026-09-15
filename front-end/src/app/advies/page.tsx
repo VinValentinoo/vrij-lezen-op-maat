@@ -1,9 +1,11 @@
 'use client';
 
+import { AddToLeeslijstButton } from "@/components/AddToLeeslijstButton";
 import { apiFetch } from "@/lib/api-client";
 import { useEffect, useState } from "react";
 
 type Suggestion = {
+    catalogusItemId: string,
     titel: string,
     beschrijving: string,
     motivatie: string;
@@ -49,6 +51,7 @@ export default function AdviesPage() {
                         <h2>{suggestion.titel}</h2>
                         <p>{suggestion.beschrijving}</p>
                         <p>{suggestion.motivatie}</p>
+                        <AddToLeeslijstButton catalogusItemId={suggestion.catalogusItemId}/>
                     </div>
                 ))}
             </div>

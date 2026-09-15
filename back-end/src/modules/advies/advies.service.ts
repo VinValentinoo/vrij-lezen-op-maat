@@ -33,6 +33,7 @@ export class AdviesService {
             .slice(0, 3);
 
         return top3.map((i) => ({
+            catalogusItemId: i.item._id.toString(),
             titel: i.item.titel,
             beschrijving: i.item.beschrijving,
             motivatie: this.buildMotive(readingProfile, i.item),

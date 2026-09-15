@@ -1,5 +1,6 @@
 'use client';
 
+import { AddToLeeslijstButton } from "@/components/AddToLeeslijstButton";
 import { apiFetch } from "@/lib/api-client";
 import { useEffect, useState } from "react";
 
@@ -80,10 +81,6 @@ export default function CatalogusPage() {
         setPage(1);
     }
 
-    async function handleReadinglistAdd(item: CatalogusItem) {
-        console.log(item)
-    }
-
     return (
         <div>
             <h1 className="text-xl font-semibold">Catalogus</h1>
@@ -156,10 +153,7 @@ export default function CatalogusPage() {
                     <li key={item._id}>
                         <h2>{item.titel}</h2>
                         <p>{item.beschrijving}</p>
-                        <button
-                            onClick={() => handleReadinglistAdd(item)}
-                            className="px-4 w-auto h-10 bg-blue-500 hover:bg-blue-700 hover:scale-105"
-                        >Toevoegen aan leeslijst</button>
+                        <AddToLeeslijstButton catalogusItemId={item._id}/>
                     </li>
                 ))}
             </ul>

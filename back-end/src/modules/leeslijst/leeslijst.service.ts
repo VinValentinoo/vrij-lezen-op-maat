@@ -1,14 +1,39 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 import { AddLeeslijstItemDto } from './dto/add-leeslijst-item.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { CatalogusItem } from '../catalogus/schemas/catalogus-item.schema';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class LeeslijstService {
-    constructor(private prisma: PrismaService) {}
+    constructor(
+        @InjectModel(CatalogusItem.name) private catalogusModel: Model<CatalogusItem>,
+        private prisma: PrismaService
+    ) { }
 
     async getLeeslijst(userId: string) {
-        return this.prisma.readingListItem.findMany({
-            where: { userId }
+        const items = await this.prisma.readingListItem.findMany({
+            where: { userId },
+        });
+
+        const catalogusItemIds = items.map((item) => item.catalogusItemId);
+
+        const catalogusItems = await this.catalogusModel
+            .find({ _id: { $in: catalogusItemIds } })
+            .exec();
+
+        return items.map((item) => {
+            const catalogusItem = catalogusItems.find(
+                (c) => c._id.toString() === item.catalogusItemId
+            );
+
+            return {
+                id: item.id,
+                status: item.status,
+                titel: catalogusItem?.titel,
+                beschrijving: catalogusItem?.beschrijving,
+            };
         });
     }
 
@@ -16,7 +41,7 @@ export class LeeslijstService {
         return this.prisma.readingListItem.create({
             data: {
                 userId,
-                catalogusItemId: dto.CatalogusItemid
+                catalogusItemId: dto.catalogusItemId
             }
         });
     }
@@ -26,14 +51,14 @@ export class LeeslijstService {
             where: { id: itemId }
         });
 
-        if (!item || item.userId !== userId) 
+        if (!item || item.userId !== userId)
             throw new NotFoundException('Leeslijst niet gevonden.');
 
         const nieuweStatus = item.status === 'GELEZEN' ? 'NIET_GELEZEN' : 'GELEZEN';
 
         return this.prisma.readingListItem.update({
-            where: { id: itemId},
-            data: { status: nieuweStatus}
+            where: { id: itemId },
+            data: { status: nieuweStatus }
         });
     }
 }
