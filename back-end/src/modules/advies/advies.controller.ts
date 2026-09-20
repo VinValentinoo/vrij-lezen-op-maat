@@ -4,12 +4,12 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller('advies')
+@UseGuards(JwtAuthGuard)
+@ApiBearerAuth()
 export class AdviesController {
     constructor(private readonly adviesServce: AdviesService) { }
 
     @Get()
-    @UseGuards(JwtAuthGuard)
-    @ApiBearerAuth()
     async getAdvies(@Req() req: Request) {
         return this.adviesServce.getAdvies((req as any).user.userId);
     }

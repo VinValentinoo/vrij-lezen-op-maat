@@ -12,5 +12,6 @@ import { CatalogusItem, CatalogusItemSchema } from '../catalogus/schemas/catalog
     ],
     controllers: [LeeslijstController],
     providers: [LeeslijstService],
+    exports: [LeeslijstService],
 })
 export class LeeslijstModule {}
