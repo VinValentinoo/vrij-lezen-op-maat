@@ -4,6 +4,8 @@ import { apiFetch } from "@/lib/api-client";
 import { useCurrentUser } from "@/lib/useCurrentUser";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/Button";
+import { Skeleton } from "@/components/Skeleton";
 
 type Student = {
     id: string;
@@ -20,6 +22,10 @@ type LeeslijstItem = {
     beschrijving: string;
     status: 'NIET_GELEZEN' | 'GELEZEN';
 };
+
+const inputClass =
+    "w-full rounded-md border border-brand-soft bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand";
+const labelClass = "mb-1 block text-sm font-medium text-ink";
 
 export default function DocentPage() {
     const { user, loading } = useCurrentUser();
@@ -112,68 +118,101 @@ export default function DocentPage() {
         }
     }
 
-    if (loading) return <p>Laden...</p>;
+    if (loading) return <Skeleton lines={3} />;
     if (user?.role !== 'DOCENT') return null;
 
     return (
         <div>
-            <h1 className="text-xl font-semibold">Docentoverzicht</h1>
+            <h1 className="font-serif text-2xl font-semibold text-ink mb-6">Docentoverzicht</h1>
 
-            {err && <p role="alert">{err}</p>}
-            {studentenLoading && <p>Studenten laden...</p>}
-
-            {!studentenLoading && studenten.length === 0 && (
-                <p>Er zijn nog geen studenten aan jou gekoppeld.</p>
+            {err && (
+                <p role="alert" className="mb-4 rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">
+                    {err}
+                </p>
             )}
 
-            <ul>
-                {studenten.map((s) => (
-                    <li key={s.id}>
-                        <span>{s.user.naam} ({s.user.email})</span>
-                        <button onClick={() => bekijkLeeslijst(s.user.id)}>
-                            Bekijk leeslijst
-                        </button>
-                    </li>
-                ))}
-            </ul>
-
-            {geselecteerdeStudentId && (
-                <div>
-                    <h2 className="text-lg font-semibold">Leeslijst</h2>
-
-                    {leeslijstLoading && <p>Leeslijst laden...</p>}
-                    {leeslijstErr && <p role="alert">{leeslijstErr}</p>}
-
-                    {!leeslijstLoading && leeslijst.length === 0 && (
-                        <p>Deze student heeft nog geen boeken op zijn/haar leeslijst.</p>
+            {studentenLoading ? (
+                <Skeleton lines={3} />
+            ) : (
+                <>
+                    {studenten.length === 0 && (
+                        <p className="text-sm text-muted">Er zijn nog geen studenten aan jou gekoppeld.</p>
                     )}
 
-                    <ul>
-                        {leeslijst.map((item) => (
-                            <li key={item.id}>
-                                <h3>{item.titel}</h3>
-                                <p>{item.beschrijving}</p>
-                                <p>{item.status === 'GELEZEN' ? 'Gelezen' : 'Nog niet gelezen'}</p>
+                    <ul className="mb-8 divide-y divide-brand-soft rounded-lg border border-brand-soft bg-white">
+                        {studenten.map((s) => (
+                            <li key={s.id} className="flex items-center justify-between px-4 py-3">
+                                <span className="text-sm text-ink">
+                                    {s.user.naam} <span className="text-muted">({s.user.email})</span>
+                                </span>
+                                <Button variant="secondary" onClick={() => bekijkLeeslijst(s.user.id)}>
+                                    Bekijk leeslijst
+                                </Button>
                             </li>
                         ))}
                     </ul>
+                </>
+            )}
+
+            {geselecteerdeStudentId && (
+                <div className="rounded-lg border border-brand-soft bg-white p-4">
+                    <h2 className="font-serif text-lg font-semibold text-ink mb-4">Leeslijst</h2>
+
+                    {leeslijstLoading ? (
+                        <Skeleton lines={2} />
+                    ) : (
+                        <>
+                            {leeslijstErr && (
+                                <p role="alert" className="mb-4 rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">
+                                    {leeslijstErr}
+                                </p>
+                            )}
+
+                            {leeslijst.length === 0 && (
+                                <p className="mb-4 text-sm text-muted">
+                                    Deze student heeft nog geen boeken op zijn/haar leeslijst.
+                                </p>
+                            )}
+
+                            <ul className="mb-6 space-y-3">
+                                {leeslijst.map((item) => (
+                                    <li key={item.id} className="rounded-md border border-brand-soft p-3">
+                                        <h3 className="text-sm font-semibold text-ink">{item.titel}</h3>
+                                        <p className="mt-1 text-sm text-muted">{item.beschrijving}</p>
+                                        <p className="mt-2 text-xs font-medium text-accent">
+                                            {item.status === 'GELEZEN' ? 'Gelezen' : 'Nog niet gelezen'}
+                                        </p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </>
+                    )}
 
                     <form onSubmit={handleToevoegen}>
-                        <div>
-                            <label htmlFor="catalogusItemId">
+                        <div className="mb-4">
+                            <label htmlFor="catalogusItemId" className={labelClass}>
                                 Catalogus item-ID toevoegen (te vinden bij een boek op /catalogus)
                             </label>
                             <input
                                 id="catalogusItemId"
                                 type="text"
+                                className={inputClass}
                                 value={nieuwCatalogusItemId}
                                 onChange={(e) => setNieuwCatalogusItemId(e.target.value)}
                                 required
                             />
                         </div>
-                        {toevoegSucces && <p role="status">Toegevoegd aan de leeslijst.</p>}
-                        {toevoegErr && <p role="alert">{toevoegErr}</p>}
-                        <button type="submit">Toevoegen aan leeslijst</button>
+                        {toevoegSucces && (
+                            <p role="status" className="mb-4 rounded-md bg-success-soft px-3 py-2 text-sm text-success">
+                                Toegevoegd aan de leeslijst.
+                            </p>
+                        )}
+                        {toevoegErr && (
+                            <p role="alert" className="mb-4 rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">
+                                {toevoegErr}
+                            </p>
+                        )}
+                        <Button type="submit">Toevoegen aan leeslijst</Button>
                     </form>
                 </div>
             )}

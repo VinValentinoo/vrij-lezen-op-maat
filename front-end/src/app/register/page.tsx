@@ -3,8 +3,13 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { apiFetch } from "@/lib/api-client";
+import { Button } from "@/components/ui/Button";
 
 type Role = 'STUDENT' | 'DOCENT';
+
+const inputClass =
+    "w-full rounded-md border border-brand-soft bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand";
+const labelClass = "mb-1 block text-sm font-medium text-ink";
 
 export default function RegisterPage() {
     const [email, setEmail] = useState('');
@@ -35,46 +40,62 @@ export default function RegisterPage() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="name">Naam</label>
-                <input
-                    id="name"
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-            </div>
-            <div>
-                <label htmlFor="role">Rol</label>
-                <select name="role" id="role" value={role} onChange={(e) => setRole(e.target.value as Role)}>
-                    <option value="STUDENT">Student</option>
-                    <option value="DOCENT">Docent</option>
-                </select>
-            </div>
-            <div>
-                <label htmlFor="email">E-mailadres</label>
-                <input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-            </div>
-            <div>
-                <label htmlFor="password">Wachtwoord</label>
-                <input
-                    id="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </div>
-            {err && <p role="alert">{err}</p>}
-            <button type="submit">Registeren</button>
-        </form>
+        <div className="max-w-md">
+            <h1 className="font-serif text-2xl font-semibold text-ink mb-6">Registreren</h1>
+            <form onSubmit={handleSubmit}>
+                <div className="mb-4">
+                    <label htmlFor="name" className={labelClass}>Naam</label>
+                    <input
+                        className={inputClass}
+                        id="name"
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="role" className={labelClass}>Rol</label>
+                    <select
+                        name="role"
+                        id="role"
+                        value={role}
+                        onChange={(e) => setRole(e.target.value as Role)}
+                        className={inputClass}
+                    >
+                        <option value="STUDENT">Student</option>
+                        <option value="DOCENT">Docent</option>
+                    </select>
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="email" className={labelClass}>E-mailadres</label>
+                    <input
+                        className={inputClass}
+                        id="email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="password" className={labelClass}>Wachtwoord</label>
+                    <input
+                        className={inputClass}
+                        id="password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                {err && (
+                    <p role="alert" className="mb-4 rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">
+                        {err}
+                    </p>
+                )}
+                <Button type="submit">Registreren</Button>
+            </form>
+        </div>
     )
 }
