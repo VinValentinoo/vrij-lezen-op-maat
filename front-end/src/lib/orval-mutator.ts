@@ -5,7 +5,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
 export const customFetch = async <T>(
     url: string,
     options: RequestInit,
-): Promise<{ data: T; status: number; headers: Headers; }> => {
+): Promise<T> => {
     const token = getToken();
 
     const res = await fetch(`${API_URL}${url}`, {
@@ -29,5 +29,5 @@ export const customFetch = async <T>(
     }
 
     const data = (await res.json()) as T;
-    return { data, status: res.status, headers: res.headers };
+    return { data, status: res.status, headers: res.headers} as T;
 }
