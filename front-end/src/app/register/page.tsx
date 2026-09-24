@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { apiFetch } from "@/lib/api-client";
 import { Button } from "@/components/ui/Button";
-
-type Role = 'STUDENT' | 'DOCENT';
+import { RegisterDtoRole } from "@/lib/generated/models";
+import { authControllerRegister } from "@/lib/generated";
 
 const inputClass =
     "w-full rounded-md border border-brand-soft bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand";
@@ -15,7 +14,7 @@ export default function RegisterPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [role, setRole] = useState<Role>('STUDENT');
+    const [role, setRole] = useState<RegisterDtoRole>(RegisterDtoRole.STUDENT);
     const [err, setErr] = useState<string | null>(null);
 
     const router = useRouter();
@@ -25,10 +24,7 @@ export default function RegisterPage() {
         setErr(null);
 
         try {
-            await apiFetch<{ message: string, email: string, name: string, role: string }>('/auth/register', {
-                method: 'POST',
-                body: JSON.stringify({ email, password, name, role }),
-            });
+            await authControllerRegister({ email, password, name, role })
             router.push('/login');
         } catch (err) {
             if (err instanceof Error) {
@@ -60,11 +56,11 @@ export default function RegisterPage() {
                         name="role"
                         id="role"
                         value={role}
-                        onChange={(e) => setRole(e.target.value as Role)}
+                        onChange={(e) => setRole(e.target.value as RegisterDtoRole)}
                         className={inputClass}
                     >
-                        <option value="STUDENT">Student</option>
-                        <option value="DOCENT">Docent</option>
+                        <option value={RegisterDtoRole.STUDENT}>Student</option>
+                        <option value={RegisterDtoRole.DOCENT}>Docent</option>
                     </select>
                 </div>
                 <div className="mb-4">

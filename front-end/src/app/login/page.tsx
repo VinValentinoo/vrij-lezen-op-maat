@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from "react";
-import { apiFetch } from "@/lib/api-client";
 import { setToken } from "@/lib/cookies";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
+import { authControllerLogin } from "@/lib/generated";
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
@@ -18,10 +18,7 @@ export default function LoginPage() {
         setErr(null);
 
         try {
-            const data = await apiFetch<{ accessToken: string }>('/auth/login', {
-                method: 'POST',
-                body: JSON.stringify({ email, password }),
-            });
+            const { data } = await authControllerLogin({ email, password });
             setToken(data.accessToken);
             router.push('/profiel');
         } catch (err) {
