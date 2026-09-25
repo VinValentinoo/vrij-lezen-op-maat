@@ -1,6 +1,6 @@
-import { Role } from "@prisma/client";
-import { Request } from "express";
+import { Role } from '@prisma/client';
+import { Request } from 'express';
 
 export interface AuthenticatedRequest extends Request {
-    user: { userId: string, role: Role };
+  user: { userId: string; role: Role };
 }

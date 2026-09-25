@@ -17,10 +17,10 @@ export class KoppelingController {
   }
 
   @Post()
-  async koppelAanDocent(@Req() req: AuthenticatedRequest, @Body() dto: KoppelDto) {
-    return this.koppelingService.koppelAanDocent(
-      req.user.userId,
-      dto.docentId,
-    );
+  async koppelAanDocent(
+    @Req() req: AuthenticatedRequest,
+    @Body() dto: KoppelDto,
+  ) {
+    return this.koppelingService.koppelAanDocent(req.user.userId, dto.docentId);
   }
 }

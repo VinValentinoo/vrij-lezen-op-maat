@@ -17,7 +17,10 @@ export class ProfileController {
   }
 
   @Put()
-  async upsertProfile(@Req() req: AuthenticatedRequest, @Body() dto: UpdateProfileDto) {
+  async upsertProfile(
+    @Req() req: AuthenticatedRequest,
+    @Body() dto: UpdateProfileDto,
+  ) {
     return this.profileService.upsertProfile(req.user.userId, dto);
   }
 }

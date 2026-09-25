@@ -20,13 +20,11 @@ import { AuthenticatedRequest } from '../auth/types/authenticated-request';
 @Roles('DOCENT')
 @ApiBearerAuth()
 export class DocentController {
-  constructor(private readonly docentenService: DocentService) { }
+  constructor(private readonly docentenService: DocentService) {}
 
   @Get()
   async getGekoppeldeStudenten(@Req() req: AuthenticatedRequest) {
-    return this.docentenService.getGekoppeldeStudenten(
-      req.user.userId,
-    );
+    return this.docentenService.getGekoppeldeStudenten(req.user.userId);
   }
 
   @Get(':studentId/leeslijst')
@@ -34,10 +32,7 @@ export class DocentController {
     @Req() req: AuthenticatedRequest,
     @Param('studentId') studentId: string,
   ) {
-    return this.docentenService.getStudentLeeslijst(
-      req.user.userId,
-      studentId,
-    );
+    return this.docentenService.getStudentLeeslijst(req.user.userId, studentId);
   }
 
   @Post(':studentId/leeslijst')

@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { CatalogusItem } from '../catalogus/schemas/catalogus-item.schema';
 import { Model } from 'mongoose';
 import { PrismaService } from '../../prisma/prisma.service';
+import { ReadingProfile } from '@prisma/client';
 
 @Injectable()
 export class AdviesService {
@@ -39,7 +40,7 @@ export class AdviesService {
     }));
   }
 
-  private calculateScore(profile: any, item: CatalogusItem): number {
+  private calculateScore(profile: ReadingProfile, item: CatalogusItem): number {
     let score = 0;
 
     if (profile.taalniveau === item.taalniveau) score++;
@@ -50,7 +51,7 @@ export class AdviesService {
     return score;
   }
 
-  private buildMotive(profile: any, item: CatalogusItem): string {
+  private buildMotive(profile: ReadingProfile, item: CatalogusItem): string {
     const matches: string[] = [];
 
     if (profile.taalniveau === item.taalniveau) matches.push('taalniveau');

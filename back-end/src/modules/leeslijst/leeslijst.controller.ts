@@ -26,12 +26,18 @@ export class LeeslijstController {
   }
 
   @Post()
-  async addToLeeslijst(@Req() req: AuthenticatedRequest, @Body() dto: AddLeeslijstItemDto) {
+  async addToLeeslijst(
+    @Req() req: AuthenticatedRequest,
+    @Body() dto: AddLeeslijstItemDto,
+  ) {
     return this.leeslijstService.addToLeeslijst(req.user.userId, dto);
   }
 
   @Patch(':id/toggle')
-  async toggleStatus(@Req() req: AuthenticatedRequest, @Param('id') id: string) {
+  async toggleStatus(
+    @Req() req: AuthenticatedRequest,
+    @Param('id') id: string,
+  ) {
     return this.leeslijstService.toggleStatus(req.user.userId, id);
   }
 }
