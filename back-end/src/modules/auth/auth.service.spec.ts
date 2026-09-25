@@ -73,7 +73,7 @@ describe('AuthService', () => {
         password: 'wachtwoord123',
         name: 'Test',
         role: 'STUDENT' as any,
-      })
+      }),
     ).rejects.toThrow(ConflictException);
   });
 

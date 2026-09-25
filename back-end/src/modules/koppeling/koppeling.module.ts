@@ -4,6 +4,6 @@ import { KoppelingController } from './koppeling.controller';
 
 @Module({
   providers: [KoppelingService],
-  controllers: [KoppelingController]
+  controllers: [KoppelingController],
 })
 export class KoppelingModule {}

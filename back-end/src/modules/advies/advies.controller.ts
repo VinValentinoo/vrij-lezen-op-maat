@@ -7,11 +7,10 @@ import { ApiBearerAuth } from '@nestjs/swagger';
 @UseGuards(JwtAuthGuard)
 @ApiBearerAuth()
 export class AdviesController {
-    constructor(private readonly adviesServce: AdviesService) { }
+  constructor(private readonly adviesServce: AdviesService) {}
 
-    @Get()
-    async getAdvies(@Req() req: Request) {
-        return this.adviesServce.getAdvies((req as any).user.userId);
-    }
-
+  @Get()
+  async getAdvies(@Req() req: Request) {
+    return this.adviesServce.getAdvies((req as any).user.userId);
+  }
 }

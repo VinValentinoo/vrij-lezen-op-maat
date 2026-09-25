@@ -8,15 +8,15 @@ import { UpdateProfileDto } from './dto/update-profile.dto';
 @UseGuards(JwtAuthGuard)
 @ApiBearerAuth()
 export class ProfileController {
-    constructor(private readonly profileService: ProfileService) { }
+  constructor(private readonly profileService: ProfileService) {}
 
-    @Get()
-    async getProfile(@Req() req: Request) {
-        return this.profileService.getProfile((req as any).user.userId);
-    }
+  @Get()
+  async getProfile(@Req() req: Request) {
+    return this.profileService.getProfile((req as any).user.userId);
+  }
 
-    @Put()
-    async upsertProfile(@Req() req: Request, @Body() dto: UpdateProfileDto) {
-        return this.profileService.upsertProfile((req as any).user.userId, dto);
-    }
+  @Put()
+  async upsertProfile(@Req() req: Request, @Body() dto: UpdateProfileDto) {
+    return this.profileService.upsertProfile((req as any).user.userId, dto);
+  }
 }

@@ -17,7 +17,7 @@ import { DocentModule } from './modules/docent/docent.module';
 // straks zijn eigen controller -> service -> repository laag (zie README).
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }), 
+    ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -25,7 +25,15 @@ import { DocentModule } from './modules/docent/docent.module';
         uri: config.get<string>('MONGODB_URI'),
       }),
     }),
-    PrismaModule, AuthModule, ProfileModule, CatalogusModule, AdviesModule, LeeslijstModule, KoppelingModule, DocentModule],
+    PrismaModule,
+    AuthModule,
+    ProfileModule,
+    CatalogusModule,
+    AdviesModule,
+    LeeslijstModule,
+    KoppelingModule,
+    DocentModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

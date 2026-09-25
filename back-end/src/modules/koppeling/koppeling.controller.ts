@@ -8,15 +8,18 @@ import { KoppelDto } from './dto/koppel.dto';
 @UseGuards(JwtAuthGuard)
 @ApiBearerAuth()
 export class KoppelingController {
-    constructor(private readonly koppelingService: KoppelingService) {}
+  constructor(private readonly koppelingService: KoppelingService) {}
 
-    @Get()
-    async getDocenten(@Req() req: Request) {
-        return this.koppelingService.getDocenten();
-    }
+  @Get()
+  async getDocenten(@Req() req: Request) {
+    return this.koppelingService.getDocenten();
+  }
 
-    @Post()
-    async koppelAanDocent(@Req() req: Request, @Body() dto: KoppelDto) {
-        return this.koppelingService.koppelAanDocent((req as any).user.userId, dto.docentId);
-    }
+  @Post()
+  async koppelAanDocent(@Req() req: Request, @Body() dto: KoppelDto) {
+    return this.koppelingService.koppelAanDocent(
+      (req as any).user.userId,
+      dto.docentId,
+    );
+  }
 }

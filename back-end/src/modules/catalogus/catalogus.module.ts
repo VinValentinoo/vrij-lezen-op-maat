@@ -1,16 +1,19 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { CatalogusItem, CatalogusItemSchema } from './schemas/catalogus-item.schema';
+import {
+  CatalogusItem,
+  CatalogusItemSchema,
+} from './schemas/catalogus-item.schema';
 import { CatalogusService } from './catalogus.service';
 import { CatalogusController } from './catalogus.controller';
 
 @Module({
-    imports: [
-        MongooseModule.forFeature([
-            { name: CatalogusItem.name, schema: CatalogusItemSchema },
-        ]),
-    ],
-    providers: [CatalogusService],
-    controllers: [CatalogusController],
+  imports: [
+    MongooseModule.forFeature([
+      { name: CatalogusItem.name, schema: CatalogusItemSchema },
+    ]),
+  ],
+  providers: [CatalogusService],
+  controllers: [CatalogusController],
 })
-export class CatalogusModule { }
+export class CatalogusModule {}

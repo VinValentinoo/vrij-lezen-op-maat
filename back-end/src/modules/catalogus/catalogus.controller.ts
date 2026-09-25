@@ -4,10 +4,10 @@ import { CatalogusQueryDto } from './dto/catalogus-query.dto';
 
 @Controller('catalogus')
 export class CatalogusController {
-    constructor(private readonly catalogusService: CatalogusService) {}
+  constructor(private readonly catalogusService: CatalogusService) {}
 
-    @Get()
-    async findAll(@Query() query: CatalogusQueryDto) {
-        return this.catalogusService.findAll(query);
-    }
+  @Get()
+  async findAll(@Query() query: CatalogusQueryDto) {
+    return this.catalogusService.findAll(query);
+  }
 }
