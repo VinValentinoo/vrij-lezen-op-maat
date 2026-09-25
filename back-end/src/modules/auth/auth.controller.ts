@@ -7,6 +7,7 @@ import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { ApiBearerAuth, ApiCreatedResponse } from '@nestjs/swagger';
 import { LoginResponseDto } from './dto/login-response.dto';
 import { RegisterResponseDto } from './dto/register-response.dto';
+import { AuthenticatedRequest } from './types/authenticated-request';
 
 @Controller('auth')
 export class AuthController {
@@ -27,7 +28,7 @@ export class AuthController {
   @Get('me')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
-  async me(@Req() req: Request) {
-    return (req as any).user;
+  async me(@Req() req: AuthenticatedRequest) {
+    return req.user;
   }
 }

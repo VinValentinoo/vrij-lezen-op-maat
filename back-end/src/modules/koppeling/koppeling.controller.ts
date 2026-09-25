@@ -3,6 +3,7 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { ApiBearerAuth } from '@nestjs/swagger';
 import { KoppelingService } from './koppeling.service';
 import { KoppelDto } from './dto/koppel.dto';
+import { AuthenticatedRequest } from '../auth/types/authenticated-request';
 
 @Controller('koppeling')
 @UseGuards(JwtAuthGuard)
@@ -11,14 +12,14 @@ export class KoppelingController {
   constructor(private readonly koppelingService: KoppelingService) {}
 
   @Get()
-  async getDocenten(@Req() req: Request) {
+  async getDocenten() {
     return this.koppelingService.getDocenten();
   }
 
   @Post()
-  async koppelAanDocent(@Req() req: Request, @Body() dto: KoppelDto) {
+  async koppelAanDocent(@Req() req: AuthenticatedRequest, @Body() dto: KoppelDto) {
     return this.koppelingService.koppelAanDocent(
-      (req as any).user.userId,
+      req.user.userId,
       dto.docentId,
     );
   }

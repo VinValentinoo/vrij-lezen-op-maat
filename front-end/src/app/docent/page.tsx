@@ -179,7 +179,7 @@ export default function DocentPage() {
                                     <li key={item.id} className="rounded-md border border-brand-soft p-3">
                                         <h3 className="text-sm font-semibold text-ink">{item.titel}</h3>
                                         <p className="mt-1 text-sm text-muted">{item.beschrijving}</p>
-                                        <p className="mt-2 text-xs font-medium text-accent">
+                                        <p className={`mt-1 text-sm text-muted ${item.status === 'GELEZEN' ? 'text-success' : 'text-accent'}`}>
                                             {item.status === 'GELEZEN' ? 'Gelezen' : 'Nog niet gelezen'}
                                         </p>
                                     </li>

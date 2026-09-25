@@ -13,40 +13,41 @@ import { ApiBearerAuth } from '@nestjs/swagger';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { DocentService } from './docent.service';
 import { AddLeeslijstItemDto } from '../leeslijst/dto/add-leeslijst-item.dto';
+import { AuthenticatedRequest } from '../auth/types/authenticated-request';
 
 @Controller('docent')
 @UseGuards(JwtAuthGuard, RolesGuard)
 @Roles('DOCENT')
 @ApiBearerAuth()
 export class DocentController {
-  constructor(private readonly docentenService: DocentService) {}
+  constructor(private readonly docentenService: DocentService) { }
 
   @Get()
-  async getGekoppeldeStudenten(@Req() req: Request) {
+  async getGekoppeldeStudenten(@Req() req: AuthenticatedRequest) {
     return this.docentenService.getGekoppeldeStudenten(
-      (req as any).user.userId,
+      req.user.userId,
     );
   }
 
   @Get(':studentId/leeslijst')
   async getStudentenLijst(
-    @Req() req: Request,
+    @Req() req: AuthenticatedRequest,
     @Param('studentId') studentId: string,
   ) {
     return this.docentenService.getStudentLeeslijst(
-      (req as any).user.userId,
+      req.user.userId,
       studentId,
     );
   }
 
   @Post(':studentId/leeslijst')
   async addToStudentLeeslijst(
-    @Req() req: Request,
+    @Req() req: AuthenticatedRequest,
     @Param('studentId') studentId: string,
     @Body() dto: AddLeeslijstItemDto,
   ) {
     return this.docentenService.addToStudentLeeslijst(
-      (req as any).user.userId,
+      req.user.userId,
       studentId,
       dto,
     );
