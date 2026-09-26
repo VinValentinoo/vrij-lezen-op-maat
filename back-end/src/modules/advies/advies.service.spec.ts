@@ -59,6 +59,7 @@ describe('AdviesService', () => {
 
     const catalogusItems = [
       {
+        _id: 'mock-id-1',
         titel: 'Geen match',
         beschrijving: 'Matcht nergens mee',
         taalniveau: 'C1',
@@ -67,6 +68,7 @@ describe('AdviesService', () => {
         lengte: 'Lang',
       },
       {
+        _id: 'mock-id-2',
         titel: 'Perfecte match',
         beschrijving: 'Matcht op alles',
         taalniveau: 'B1',
@@ -75,6 +77,7 @@ describe('AdviesService', () => {
         lengte: 'Middel',
       },
       {
+        _id: 'mock-id-3',
         titel: 'Deels match',
         beschrijving: 'Matcht op twee velden',
         taalniveau: 'B1',
@@ -103,6 +106,7 @@ describe('AdviesService', () => {
 
     const catalogusItems = [
       {
+        _id: 'mock-id-4',
         titel: 'Boek A',
         beschrijving: '...',
         taalniveau: 'C1',
@@ -111,6 +115,7 @@ describe('AdviesService', () => {
         lengte: 'Lang',
       },
       {
+        _id: 'mock-id-5',
         titel: 'Boek B',
         beschrijving: '...',
         taalniveau: 'A2',
@@ -119,6 +124,7 @@ describe('AdviesService', () => {
         lengte: 'Kort',
       },
       {
+        _id: 'mock-id-6',
         titel: 'Boek C',
         beschrijving: '...',
         taalniveau: 'C1',
