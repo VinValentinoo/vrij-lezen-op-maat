@@ -28,6 +28,9 @@ describe('AdviesService', () => {
             readingProfile: {
               findUnique: jest.fn(),
             },
+            readingListItem: {
+              findMany: jest.fn(),
+            },
           },
         },
         {
@@ -46,6 +49,7 @@ describe('AdviesService', () => {
 
   it('gooit een NotFoundException als er geen leesprofiel bestaat', async () => {
     (prisma.readingProfile.findUnique as jest.Mock).mockResolvedValue(null);
+    (prisma.readingListItem.findMany as jest.Mock).mockResolvedValue([]);
 
     await expect(service.getAdvies('user-1')).rejects.toThrow(
       NotFoundException,
@@ -56,6 +60,7 @@ describe('AdviesService', () => {
     (prisma.readingProfile.findUnique as jest.Mock).mockResolvedValue(
       mockProfile,
     );
+    (prisma.readingListItem.findMany as jest.Mock).mockResolvedValue([]);
 
     const catalogusItems = [
       {
@@ -103,6 +108,7 @@ describe('AdviesService', () => {
     (prisma.readingProfile.findUnique as jest.Mock).mockResolvedValue(
       mockProfile,
     );
+    (prisma.readingListItem.findMany as jest.Mock).mockResolvedValue([]);
 
     const catalogusItems = [
       {

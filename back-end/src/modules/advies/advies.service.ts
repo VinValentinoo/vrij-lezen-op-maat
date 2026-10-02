@@ -15,25 +15,35 @@ export class AdviesService {
 
   async getAdvies(userId: string) {
     const readingProfile = await this.prisma.readingProfile.findUnique({
-      where: {
-        userId: userId,
-      },
+      where: { userId },
     });
 
-    if (!readingProfile)
+    if (!readingProfile) {
       throw new NotFoundException('Leesprofiel niet gevonden.');
+    }
+
+    const bestaandeLeeslijst = await this.prisma.readingListItem.findMany({
+      where: { userId },
+      select: { catalogusItemId: true },
+    });
+    const uitgeslotenIds = new Set(
+      bestaandeLeeslijst.map((item) => item.catalogusItemId),
+    );
 
     const catalogusItems = await this.catalogusModel.find().exec();
+    const beschikbareItems = catalogusItems.filter(
+      (item) => !uitgeslotenIds.has(item._id.toString()),
+    );
 
-    const sortedItems = catalogusItems.map((item) => ({
+    const scoredItems = beschikbareItems.map((item) => ({
       item,
       score: this.calculateScore(readingProfile, item),
     }));
 
-    const top3 = sortedItems.sort((a, b) => b.score - a.score).slice(0, 3);
+    const top3 = scoredItems.sort((a, b) => b.score - a.score).slice(0, 3);
 
     return top3.map((i) => ({
-      catalogusItemId: i.item._id.toString(),
+      catalogusItems: i.item._id.toString(),
       titel: i.item.titel,
       beschrijving: i.item.beschrijving,
       motivatie: this.buildMotive(readingProfile, i.item),

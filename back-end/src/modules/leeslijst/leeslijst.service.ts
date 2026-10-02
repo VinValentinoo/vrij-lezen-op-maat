@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 import { AddLeeslijstItemDto } from './dto/add-leeslijst-item.dto';
 import { InjectModel } from '@nestjs/mongoose';
@@ -39,12 +43,16 @@ export class LeeslijstService {
   }
 
   async addToLeeslijst(userId: string, dto: AddLeeslijstItemDto) {
-    return this.prisma.readingListItem.create({
-      data: {
-        userId,
-        catalogusItemId: dto.catalogusItemId,
-      },
-    });
+    try {
+      return await this.prisma.readingListItem.create({
+        data: {
+          userId,
+          catalogusItemId: dto.catalogusItemId,
+        },
+      });
+    } catch {
+      throw new ConflictException('Dit boek staat al in je leeslijst.');
+    }
   }
 
   async toggleStatus(userId: string, itemId: string) {

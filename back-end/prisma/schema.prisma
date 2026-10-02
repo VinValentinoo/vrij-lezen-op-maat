@@ -59,6 +59,7 @@ model ReadingListItem {
   status           LeesStatus @default(NIET_GELEZEN)
   toegevoegdOp     DateTime   @default(now())
 
+  @@unique([userId, catalogusItemId])
   @@index([userId])
 }
 

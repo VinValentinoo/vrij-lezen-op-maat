@@ -23,7 +23,9 @@ export function AddToLeeslijstButton({ catalogusItemId }: Props) {
 
             setAdded(true);
         } catch(err) {
-            if(err instanceof Error) {
+            if (err instanceof Error && err.message.includes('al op je leeslijst')) {
+                setAdded(true);
+            } else if(err instanceof Error) {
                 setErr(err.message);
             } else {
                 setErr('Er is iets mis gegaan')
