@@ -3,7 +3,7 @@
 import { apiFetch } from "@/lib/api-client";
 import { useCurrentUser } from "@/lib/useCurrentUser";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/Skeleton";
 
@@ -23,6 +23,12 @@ type LeeslijstItem = {
     status: 'NIET_GELEZEN' | 'GELEZEN';
 };
 
+type CatalogusItem = {
+    _id: string;
+    titel: string;
+    beschrijving: string;
+};
+
 const inputClass =
     "w-full rounded-md border border-brand-soft bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand";
 const labelClass = "mb-1 block text-sm font-medium text-ink";
@@ -40,7 +46,9 @@ export default function DocentPage() {
     const [leeslijstLoading, setLeeslijstLoading] = useState(false);
     const [leeslijstErr, setLeeslijstErr] = useState('');
 
-    const [nieuwCatalogusItemId, setNieuwCatalogusItemId] = useState('');
+    const [alleBoeken, setAlleBoeken] = useState<CatalogusItem[]>([]);
+    const [zoekterm, setZoekterm] = useState('');
+    const [geselecteerdBoek, setGeselecteerdBoek] = useState<CatalogusItem | null>(null);
     const [toevoegErr, setToevoegErr] = useState('');
     const [toevoegSucces, setToevoegSucces] = useState(false);
 
@@ -56,23 +64,36 @@ export default function DocentPage() {
         async function loadStudenten() {
             setStudentenLoading(true);
             setErr('');
-
             try {
                 const data = await apiFetch<Student[]>('/docent');
                 setStudenten(data);
             } catch (err) {
-                if (err instanceof Error) {
-                    setErr(err.message);
-                } else {
-                    setErr('Er is iets mis gegaan.');
-                }
+                if (err instanceof Error) setErr(err.message);
+                else setErr('Er is iets mis gegaan.');
             } finally {
                 setStudentenLoading(false);
             }
         }
 
+        async function loadAlleBoeken() {
+            try {
+                const data = await apiFetch<{ items: CatalogusItem[] }>('/catalogus?pageSize=500');
+                setAlleBoeken(data.items);
+            } catch {
+                setAlleBoeken([]);
+            }
+        }
+
         loadStudenten();
+        loadAlleBoeken();
     }, [loading, user]);
+
+    // Lokaal filteren, geen netwerkcall per toetsaanslag nodig
+    const zoekresultaten = useMemo(() => {
+        if (!zoekterm || geselecteerdBoek) return [];
+        const term = zoekterm.toLowerCase();
+        return alleBoeken.filter((boek) => boek.titel.toLowerCase().includes(term)).slice(0, 8);
+    }, [zoekterm, geselecteerdBoek, alleBoeken]);
 
     async function bekijkLeeslijst(studentId: string) {
         setGeselecteerdeStudentId(studentId);
@@ -84,19 +105,26 @@ export default function DocentPage() {
             const data = await apiFetch<LeeslijstItem[]>(`/docent/${studentId}/leeslijst`);
             setLeeslijst(data);
         } catch (err) {
-            if (err instanceof Error) {
-                setLeeslijstErr(err.message);
-            } else {
-                setLeeslijstErr('Er is iets mis gegaan.');
-            }
+            if (err instanceof Error) setLeeslijstErr(err.message);
+            else setLeeslijstErr('Er is iets mis gegaan.');
         } finally {
             setLeeslijstLoading(false);
         }
     }
 
+    function selecteerBoek(boek: CatalogusItem) {
+        setGeselecteerdBoek(boek);
+        setZoekterm(boek.titel);
+    }
+
+    function wijzigZoekterm(waarde: string) {
+        setZoekterm(waarde);
+        setGeselecteerdBoek(null);
+    }
+
     async function handleToevoegen(e: React.FormEvent) {
         e.preventDefault();
-        if (!geselecteerdeStudentId) return;
+        if (!geselecteerdeStudentId || !geselecteerdBoek) return;
 
         setToevoegErr('');
         setToevoegSucces(false);
@@ -104,17 +132,15 @@ export default function DocentPage() {
         try {
             await apiFetch(`/docent/${geselecteerdeStudentId}/leeslijst`, {
                 method: 'POST',
-                body: JSON.stringify({ catalogusItemId: nieuwCatalogusItemId }),
+                body: JSON.stringify({ catalogusItemId: geselecteerdBoek._id }),
             });
             setToevoegSucces(true);
-            setNieuwCatalogusItemId('');
+            setGeselecteerdBoek(null);
+            setZoekterm('');
             bekijkLeeslijst(geselecteerdeStudentId);
         } catch (err) {
-            if (err instanceof Error) {
-                setToevoegErr(err.message);
-            } else {
-                setToevoegErr('Er is iets mis gegaan.');
-            }
+            if (err instanceof Error) setToevoegErr(err.message);
+            else setToevoegErr('Er is iets mis gegaan.');
         }
     }
 
@@ -179,7 +205,7 @@ export default function DocentPage() {
                                     <li key={item.id} className="rounded-md border border-brand-soft p-3">
                                         <h3 className="text-sm font-semibold text-ink">{item.titel}</h3>
                                         <p className="mt-1 text-sm text-muted">{item.beschrijving}</p>
-                                        <p className={`mt-1 text-sm text-muted ${item.status === 'GELEZEN' ? 'text-success' : 'text-accent'}`}>
+                                        <p className={`mt-1 text-sm ${item.status === 'GELEZEN' ? 'text-success' : 'text-accent'}`}>
                                             {item.status === 'GELEZEN' ? 'Gelezen' : 'Nog niet gelezen'}
                                         </p>
                                     </li>
@@ -189,19 +215,40 @@ export default function DocentPage() {
                     )}
 
                     <form onSubmit={handleToevoegen}>
-                        <div className="mb-4">
-                            <label htmlFor="catalogusItemId" className={labelClass}>
-                                Catalogus item-ID toevoegen (te vinden bij een boek op /catalogus)
-                            </label>
+                        <div className="relative mb-4">
+                            <label htmlFor="boekZoeken" className={labelClass}>Zoek een boek op titel</label>
                             <input
-                                id="catalogusItemId"
+                                id="boekZoeken"
                                 type="text"
                                 className={inputClass}
-                                value={nieuwCatalogusItemId}
-                                onChange={(e) => setNieuwCatalogusItemId(e.target.value)}
-                                required
+                                value={zoekterm}
+                                onChange={(e) => wijzigZoekterm(e.target.value)}
+                                placeholder="Typ een boektitel..."
+                                autoComplete="off"
                             />
+
+                            {zoekresultaten.length > 0 && (
+                                <ul className="absolute z-10 mt-1 max-h-56 w-full overflow-y-auto rounded-md border border-brand-soft bg-white shadow-md">
+                                    {zoekresultaten.map((boek) => (
+                                        <li key={boek._id}>
+                                            <button
+                                                type="button"
+                                                onClick={() => selecteerBoek(boek)}
+                                                className="block w-full px-3 py-2 text-left text-sm hover:bg-brand-soft"
+                                            >
+                                                <span className="block font-medium text-ink">{boek.titel}</span>
+                                                <span className="block truncate text-xs text-muted">{boek.beschrijving}</span>
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+
+                            {geselecteerdBoek && (
+                                <p className="mt-1 text-xs text-success">Geselecteerd: {geselecteerdBoek.titel}</p>
+                            )}
                         </div>
+
                         {toevoegSucces && (
                             <p role="status" className="mb-4 rounded-md bg-success-soft px-3 py-2 text-sm text-success">
                                 Toegevoegd aan de leeslijst.
@@ -212,7 +259,10 @@ export default function DocentPage() {
                                 {toevoegErr}
                             </p>
                         )}
-                        <Button type="submit">Toevoegen aan leeslijst</Button>
+
+                        <Button type="submit" disabled={!geselecteerdBoek}>
+                            Toevoegen aan leeslijst
+                        </Button>
                     </form>
                 </div>
             )}

@@ -12,7 +12,9 @@ export class CatalogusService {
   ) {}
 
   async findAll(query: CatalogusQueryDto) {
-    const pageSize = 10;
+    const pageSize = query.pageSize
+      ? Math.min(parseInt(query.pageSize, 10), 500)
+      : 10;
     const page = query.page ? parseInt(query.page, 10) : 1;
 
     const filter: Record<string, string> = {};

@@ -26,4 +26,9 @@ export class CatalogusQueryDto {
   @IsOptional()
   @IsString()
   lengte?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsNumberString()
+  pageSize?: string;
 }

@@ -3,6 +3,7 @@
 
 export function setToken(token: string) {
     document.cookie = `token=${token}; path=/; max-age=86400; SameSite=Strict`;
+    window.dispatchEvent(new Event('auth-changed'));
 }
 
 export function getToken() {
@@ -20,4 +21,5 @@ export function getToken() {
 
 export function deleteToken() {
     document.cookie = `token=; path=/; max-age=0; SameSite=Strict`;
+    window.dispatchEvent(new Event('auth-changed'));
 }
