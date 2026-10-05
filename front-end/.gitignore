@@ -4,3 +4,4 @@ out/
 coverage/
 .env
 *.log
+test-results/
