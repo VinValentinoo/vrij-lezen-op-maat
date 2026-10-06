@@ -43,7 +43,7 @@ export class AdviesService {
     const top3 = scoredItems.sort((a, b) => b.score - a.score).slice(0, 3);
 
     return top3.map((i) => ({
-      catalogusItems: i.item._id.toString(),
+      catalogusItemId: i.item._id.toString(),
       titel: i.item.titel,
       beschrijving: i.item.beschrijving,
       motivatie: this.buildMotive(readingProfile, i.item),
