@@ -22,7 +22,7 @@
   <!-- Back-end box -->
   <rect x="60" y="210" width="880" height="270" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
   <text x="500" y="236" text-anchor="middle" font-size="16" font-weight="bold" fill="#065f46">Back-end — NestJS (TypeScript)</text>
-  <text x="500" y="254" text-anchor="middle" font-size="12" fill="#065f46">Gelaagd per module: controller → service → repository (Prisma / Mongoose)</text>
+  <text x="500" y="254" text-anchor="middle" font-size="12" fill="#065f46">Gelaagd per module: controller → service → Prisma/Mongoose rechtstreeks (geen repository-laag)</text>
 
   <!-- module chips row 1 -->
   <g font-size="12" fill="#065f46">

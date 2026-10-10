@@ -112,8 +112,15 @@ cd back-end
 npm test          # unit tests: auth (register/login, incl. randgevallen), advies (matching/motivatie, incl. randgeval "niks matcht")
 ```
 
+```bash
+cd front-end
+npm run e2e        # end-to-end tests (Playwright): registratie + advies, leeslijst togglen, beveiligde route zonder login
+```
+
 ## Status
 
 Functioneel compleet: FR1 t/m FR6, backend en front-end, met authenticatie en rolgebaseerde autorisatie.
 
-Nog te doen: responsive/accessibility-toets (NFR4/NFR5), skeleton loading, end-to-end tests, CI/CD-pipeline, en het OpenAPI-contract "leidend" maken via een gegenereerde client.
+Afgerond: responsive/accessibility-pas (NFR4/NFR5, skeleton loading, focus-rings), end-to-end tests (Playwright), CI/CD-pipeline (GitHub Actions: lint + unit tests backend, lint + build frontend), en een OpenAPI-contract via Orval voor login/register.
+
+Bewuste scope-keuzes (geen oversight): geen aparte repository-laag tussen service en ORM, het OpenAPI-contract is alleen leidend voor login/register (rest van de app gebruikt handgeschreven fetch-calls), geen client-side route guard op /docent (de server wijst het beschermde endpoint wel af), en geen testcoverage-rapportage of branch-protection quality gate in CI.
