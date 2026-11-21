@@ -7,10 +7,23 @@
  */
 
 export * from './addLeeslijstItemDto';
+export * from './adviesItemDto';
 export * from './catalogusControllerFindAllParams';
+export * from './catalogusItemResponseDto';
+export * from './catalogusPageResponseDto';
+export * from './currentUserDto';
+export * from './currentUserDtoRole';
+export * from './docentDto';
+export * from './gekoppeldeStudentDto';
+export * from './gekoppeldeStudentUserDto';
 export * from './koppelDto';
+export * from './koppelingResponseDto';
+export * from './leeslijstItemDto';
+export * from './leesStatus';
 export * from './loginDto';
 export * from './loginResponseDto';
+export * from './readingListItemDto';
+export * from './readingProfileResponseDto';
 export * from './registerDto';
 export * from './registerDtoRole';
 export * from './registerResponseDto';

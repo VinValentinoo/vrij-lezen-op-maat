@@ -71,4 +71,7 @@ model StudentDocentKoppeling {
   docent     User   @relation("DocentKoppeling", fields: [docentId], references: [id])
 
   @@unique([studentId, docentId])
+  // De unique-index hierboven dekt zoeken op studentId; zoeken op alleen
+  // docentId (docent-overzicht) krijgt een eigen index.
+  @@index([docentId])
 }

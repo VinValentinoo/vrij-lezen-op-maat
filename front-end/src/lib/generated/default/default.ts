@@ -7,10 +7,19 @@
  */
 import type {
   AddLeeslijstItemDto,
+  AdviesItemDto,
   CatalogusControllerFindAllParams,
+  CatalogusPageResponseDto,
+  CurrentUserDto,
+  DocentDto,
+  GekoppeldeStudentDto,
   KoppelDto,
+  KoppelingResponseDto,
+  LeeslijstItemDto,
   LoginDto,
   LoginResponseDto,
+  ReadingListItemDto,
+  ReadingProfileResponseDto,
   RegisterDto,
   RegisterResponseDto,
   UpdateProfileDto
@@ -143,16 +152,23 @@ return customFetch<authControllerLoginResponse>(getAuthControllerLoginUrl(),
 
 
 export type authControllerMeResponse200 = {
-  data: void
+  data: CurrentUserDto
   status: 200
+}
+
+export type authControllerMeResponse401 = {
+  data: void
+  status: 401
 }
 
 export type authControllerMeResponseSuccess = (authControllerMeResponse200) & {
   headers: Headers;
 };
-;
+export type authControllerMeResponseError = (authControllerMeResponse401) & {
+  headers: Headers;
+};
 
-export type authControllerMeResponse = (authControllerMeResponseSuccess)
+export type authControllerMeResponse = (authControllerMeResponseSuccess | authControllerMeResponseError)
 
 export const getAuthControllerMeUrl = () => {
 
@@ -175,16 +191,23 @@ export const authControllerMe = async ( options?: Parameters<typeof customFetch>
 
 
 export type profileControllerGetProfileResponse200 = {
-  data: void
+  data: ReadingProfileResponseDto
   status: 200
+}
+
+export type profileControllerGetProfileResponse401 = {
+  data: void
+  status: 401
 }
 
 export type profileControllerGetProfileResponseSuccess = (profileControllerGetProfileResponse200) & {
   headers: Headers;
 };
-;
+export type profileControllerGetProfileResponseError = (profileControllerGetProfileResponse401) & {
+  headers: Headers;
+};
 
-export type profileControllerGetProfileResponse = (profileControllerGetProfileResponseSuccess)
+export type profileControllerGetProfileResponse = (profileControllerGetProfileResponseSuccess | profileControllerGetProfileResponseError)
 
 export const getProfileControllerGetProfileUrl = () => {
 
@@ -207,16 +230,23 @@ export const profileControllerGetProfile = async ( options?: Parameters<typeof c
 
 
 export type profileControllerUpsertProfileResponse200 = {
-  data: void
+  data: ReadingProfileResponseDto
   status: 200
+}
+
+export type profileControllerUpsertProfileResponse401 = {
+  data: void
+  status: 401
 }
 
 export type profileControllerUpsertProfileResponseSuccess = (profileControllerUpsertProfileResponse200) & {
   headers: Headers;
 };
-;
+export type profileControllerUpsertProfileResponseError = (profileControllerUpsertProfileResponse401) & {
+  headers: Headers;
+};
 
-export type profileControllerUpsertProfileResponse = (profileControllerUpsertProfileResponseSuccess)
+export type profileControllerUpsertProfileResponse = (profileControllerUpsertProfileResponseSuccess | profileControllerUpsertProfileResponseError)
 
 export const getProfileControllerUpsertProfileUrl = () => {
 
@@ -253,7 +283,7 @@ return customFetch<profileControllerUpsertProfileResponse>(getProfileControllerU
 
 
 export type catalogusControllerFindAllResponse200 = {
-  data: void
+  data: CatalogusPageResponseDto
   status: 200
 }
 
@@ -292,16 +322,28 @@ export const catalogusControllerFindAll = async (params?: CatalogusControllerFin
 
 
 export type adviesControllerGetAdviesResponse200 = {
-  data: void
+  data: AdviesItemDto[]
   status: 200
+}
+
+export type adviesControllerGetAdviesResponse401 = {
+  data: void
+  status: 401
+}
+
+export type adviesControllerGetAdviesResponse404 = {
+  data: void
+  status: 404
 }
 
 export type adviesControllerGetAdviesResponseSuccess = (adviesControllerGetAdviesResponse200) & {
   headers: Headers;
 };
-;
+export type adviesControllerGetAdviesResponseError = (adviesControllerGetAdviesResponse401 | adviesControllerGetAdviesResponse404) & {
+  headers: Headers;
+};
 
-export type adviesControllerGetAdviesResponse = (adviesControllerGetAdviesResponseSuccess)
+export type adviesControllerGetAdviesResponse = (adviesControllerGetAdviesResponseSuccess | adviesControllerGetAdviesResponseError)
 
 export const getAdviesControllerGetAdviesUrl = () => {
 
@@ -324,16 +366,23 @@ export const adviesControllerGetAdvies = async ( options?: Parameters<typeof cus
 
 
 export type leeslijstControllerGetLeeslijstResponse200 = {
-  data: void
+  data: LeeslijstItemDto[]
   status: 200
+}
+
+export type leeslijstControllerGetLeeslijstResponse401 = {
+  data: void
+  status: 401
 }
 
 export type leeslijstControllerGetLeeslijstResponseSuccess = (leeslijstControllerGetLeeslijstResponse200) & {
   headers: Headers;
 };
-;
+export type leeslijstControllerGetLeeslijstResponseError = (leeslijstControllerGetLeeslijstResponse401) & {
+  headers: Headers;
+};
 
-export type leeslijstControllerGetLeeslijstResponse = (leeslijstControllerGetLeeslijstResponseSuccess)
+export type leeslijstControllerGetLeeslijstResponse = (leeslijstControllerGetLeeslijstResponseSuccess | leeslijstControllerGetLeeslijstResponseError)
 
 export const getLeeslijstControllerGetLeeslijstUrl = () => {
 
@@ -356,16 +405,28 @@ export const leeslijstControllerGetLeeslijst = async ( options?: Parameters<type
 
 
 export type leeslijstControllerAddToLeeslijstResponse201 = {
-  data: void
+  data: ReadingListItemDto
   status: 201
+}
+
+export type leeslijstControllerAddToLeeslijstResponse401 = {
+  data: void
+  status: 401
+}
+
+export type leeslijstControllerAddToLeeslijstResponse409 = {
+  data: void
+  status: 409
 }
 
 export type leeslijstControllerAddToLeeslijstResponseSuccess = (leeslijstControllerAddToLeeslijstResponse201) & {
   headers: Headers;
 };
-;
+export type leeslijstControllerAddToLeeslijstResponseError = (leeslijstControllerAddToLeeslijstResponse401 | leeslijstControllerAddToLeeslijstResponse409) & {
+  headers: Headers;
+};
 
-export type leeslijstControllerAddToLeeslijstResponse = (leeslijstControllerAddToLeeslijstResponseSuccess)
+export type leeslijstControllerAddToLeeslijstResponse = (leeslijstControllerAddToLeeslijstResponseSuccess | leeslijstControllerAddToLeeslijstResponseError)
 
 export const getLeeslijstControllerAddToLeeslijstUrl = () => {
 
@@ -402,16 +463,28 @@ return customFetch<leeslijstControllerAddToLeeslijstResponse>(getLeeslijstContro
 
 
 export type leeslijstControllerToggleStatusResponse200 = {
-  data: void
+  data: ReadingListItemDto
   status: 200
+}
+
+export type leeslijstControllerToggleStatusResponse401 = {
+  data: void
+  status: 401
+}
+
+export type leeslijstControllerToggleStatusResponse404 = {
+  data: void
+  status: 404
 }
 
 export type leeslijstControllerToggleStatusResponseSuccess = (leeslijstControllerToggleStatusResponse200) & {
   headers: Headers;
 };
-;
+export type leeslijstControllerToggleStatusResponseError = (leeslijstControllerToggleStatusResponse401 | leeslijstControllerToggleStatusResponse404) & {
+  headers: Headers;
+};
 
-export type leeslijstControllerToggleStatusResponse = (leeslijstControllerToggleStatusResponseSuccess)
+export type leeslijstControllerToggleStatusResponse = (leeslijstControllerToggleStatusResponseSuccess | leeslijstControllerToggleStatusResponseError)
 
 export const getLeeslijstControllerToggleStatusUrl = (id: string,) => {
 
@@ -434,16 +507,23 @@ export const leeslijstControllerToggleStatus = async (id: string, options?: Para
 
 
 export type koppelingControllerGetDocentenResponse200 = {
-  data: void
+  data: DocentDto[]
   status: 200
+}
+
+export type koppelingControllerGetDocentenResponse401 = {
+  data: void
+  status: 401
 }
 
 export type koppelingControllerGetDocentenResponseSuccess = (koppelingControllerGetDocentenResponse200) & {
   headers: Headers;
 };
-;
+export type koppelingControllerGetDocentenResponseError = (koppelingControllerGetDocentenResponse401) & {
+  headers: Headers;
+};
 
-export type koppelingControllerGetDocentenResponse = (koppelingControllerGetDocentenResponseSuccess)
+export type koppelingControllerGetDocentenResponse = (koppelingControllerGetDocentenResponseSuccess | koppelingControllerGetDocentenResponseError)
 
 export const getKoppelingControllerGetDocentenUrl = () => {
 
@@ -466,16 +546,33 @@ export const koppelingControllerGetDocenten = async ( options?: Parameters<typeo
 
 
 export type koppelingControllerKoppelAanDocentResponse201 = {
-  data: void
+  data: KoppelingResponseDto
   status: 201
+}
+
+export type koppelingControllerKoppelAanDocentResponse401 = {
+  data: void
+  status: 401
+}
+
+export type koppelingControllerKoppelAanDocentResponse404 = {
+  data: void
+  status: 404
+}
+
+export type koppelingControllerKoppelAanDocentResponse409 = {
+  data: void
+  status: 409
 }
 
 export type koppelingControllerKoppelAanDocentResponseSuccess = (koppelingControllerKoppelAanDocentResponse201) & {
   headers: Headers;
 };
-;
+export type koppelingControllerKoppelAanDocentResponseError = (koppelingControllerKoppelAanDocentResponse401 | koppelingControllerKoppelAanDocentResponse404 | koppelingControllerKoppelAanDocentResponse409) & {
+  headers: Headers;
+};
 
-export type koppelingControllerKoppelAanDocentResponse = (koppelingControllerKoppelAanDocentResponseSuccess)
+export type koppelingControllerKoppelAanDocentResponse = (koppelingControllerKoppelAanDocentResponseSuccess | koppelingControllerKoppelAanDocentResponseError)
 
 export const getKoppelingControllerKoppelAanDocentUrl = () => {
 
@@ -512,16 +609,28 @@ return customFetch<koppelingControllerKoppelAanDocentResponse>(getKoppelingContr
 
 
 export type docentControllerGetGekoppeldeStudentenResponse200 = {
-  data: void
+  data: GekoppeldeStudentDto[]
   status: 200
+}
+
+export type docentControllerGetGekoppeldeStudentenResponse401 = {
+  data: void
+  status: 401
+}
+
+export type docentControllerGetGekoppeldeStudentenResponse403 = {
+  data: void
+  status: 403
 }
 
 export type docentControllerGetGekoppeldeStudentenResponseSuccess = (docentControllerGetGekoppeldeStudentenResponse200) & {
   headers: Headers;
 };
-;
+export type docentControllerGetGekoppeldeStudentenResponseError = (docentControllerGetGekoppeldeStudentenResponse401 | docentControllerGetGekoppeldeStudentenResponse403) & {
+  headers: Headers;
+};
 
-export type docentControllerGetGekoppeldeStudentenResponse = (docentControllerGetGekoppeldeStudentenResponseSuccess)
+export type docentControllerGetGekoppeldeStudentenResponse = (docentControllerGetGekoppeldeStudentenResponseSuccess | docentControllerGetGekoppeldeStudentenResponseError)
 
 export const getDocentControllerGetGekoppeldeStudentenUrl = () => {
 
@@ -544,16 +653,28 @@ export const docentControllerGetGekoppeldeStudenten = async ( options?: Paramete
 
 
 export type docentControllerGetStudentenLijstResponse200 = {
-  data: void
+  data: LeeslijstItemDto[]
   status: 200
+}
+
+export type docentControllerGetStudentenLijstResponse401 = {
+  data: void
+  status: 401
+}
+
+export type docentControllerGetStudentenLijstResponse403 = {
+  data: void
+  status: 403
 }
 
 export type docentControllerGetStudentenLijstResponseSuccess = (docentControllerGetStudentenLijstResponse200) & {
   headers: Headers;
 };
-;
+export type docentControllerGetStudentenLijstResponseError = (docentControllerGetStudentenLijstResponse401 | docentControllerGetStudentenLijstResponse403) & {
+  headers: Headers;
+};
 
-export type docentControllerGetStudentenLijstResponse = (docentControllerGetStudentenLijstResponseSuccess)
+export type docentControllerGetStudentenLijstResponse = (docentControllerGetStudentenLijstResponseSuccess | docentControllerGetStudentenLijstResponseError)
 
 export const getDocentControllerGetStudentenLijstUrl = (studentId: string,) => {
 
@@ -576,16 +697,28 @@ export const docentControllerGetStudentenLijst = async (studentId: string, optio
 
 
 export type docentControllerAddToStudentLeeslijstResponse201 = {
-  data: void
+  data: ReadingListItemDto
   status: 201
+}
+
+export type docentControllerAddToStudentLeeslijstResponse401 = {
+  data: void
+  status: 401
+}
+
+export type docentControllerAddToStudentLeeslijstResponse403 = {
+  data: void
+  status: 403
 }
 
 export type docentControllerAddToStudentLeeslijstResponseSuccess = (docentControllerAddToStudentLeeslijstResponse201) & {
   headers: Headers;
 };
-;
+export type docentControllerAddToStudentLeeslijstResponseError = (docentControllerAddToStudentLeeslijstResponse401 | docentControllerAddToStudentLeeslijstResponse403) & {
+  headers: Headers;
+};
 
-export type docentControllerAddToStudentLeeslijstResponse = (docentControllerAddToStudentLeeslijstResponseSuccess)
+export type docentControllerAddToStudentLeeslijstResponse = (docentControllerAddToStudentLeeslijstResponseSuccess | docentControllerAddToStudentLeeslijstResponseError)
 
 export const getDocentControllerAddToStudentLeeslijstUrl = (studentId: string,) => {
 

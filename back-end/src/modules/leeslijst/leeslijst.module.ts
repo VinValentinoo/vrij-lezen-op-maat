@@ -1,18 +1,10 @@
 import { Module } from '@nestjs/common';
 import { LeeslijstController } from './leeslijst.controller';
 import { LeeslijstService } from './leeslijst.service';
-import { MongooseModule } from '@nestjs/mongoose';
-import {
-  CatalogusItem,
-  CatalogusItemSchema,
-} from '../catalogus/schemas/catalogus-item.schema';
+import { CatalogusModule } from '../catalogus/catalogus.module';
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([
-      { name: CatalogusItem.name, schema: CatalogusItemSchema },
-    ]),
-  ],
+  imports: [CatalogusModule],
   controllers: [LeeslijstController],
   providers: [LeeslijstService],
   exports: [LeeslijstService],

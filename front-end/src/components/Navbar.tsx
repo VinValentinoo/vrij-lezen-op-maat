@@ -3,8 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { useCurrentUser } from '@/lib/useCurrentUser';
-import { deleteToken } from '@/lib/cookies';
+import { useAuth } from './AuthProvider';
 
 const baseLinks = [
   { href: '/profiel', label: 'Leesprofiel' },
@@ -16,12 +15,16 @@ const baseLinks = [
 export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { user, loading } = useCurrentUser();
+  const { user, loading, logout } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
+  const profileButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileButtonRef = useRef<HTMLButtonElement>(null);
 
   const links = user?.role === 'DOCENT' ? [...baseLinks, { href: '/docent', label: 'Docent' }] : baseLinks;
+  // Ook /docent/[studentId] hoort bij de actieve link "Docent".
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -33,10 +36,34 @@ export function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Escape sluit een open menu en zet de focus terug op de knop die het opende
+  // (toetsenbordgebruikers raken anders hun plek op de pagina kwijt).
+  useEffect(() => {
+    if (!profileOpen && !mobileOpen) return;
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key !== 'Escape') return;
+
+      if (profileOpen) {
+        setProfileOpen(false);
+        profileButtonRef.current?.focus();
+      }
+      if (mobileOpen) {
+        setMobileOpen(false);
+        mobileButtonRef.current?.focus();
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [profileOpen, mobileOpen]);
+
   function handleLogout() {
-    deleteToken();
+    logout();
     setProfileOpen(false);
+    setMobileOpen(false);
     router.push('/login');
+    router.refresh(); // server components opnieuw laten renderen zonder token
   }
 
   return (
@@ -54,9 +81,9 @@ export function Navbar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    aria-current={pathname === link.href ? 'page' : undefined}
+                    aria-current={isActive(link.href) ? 'page' : undefined}
                     className={`text-sm font-medium transition-colors hover:text-brand ${
-                      pathname === link.href ? 'text-brand underline underline-offset-4' : 'text-muted'
+                      isActive(link.href) ? 'text-brand underline underline-offset-4' : 'text-muted'
                     }`}
                   >
                     {link.label}
@@ -70,6 +97,7 @@ export function Navbar() {
             user ? (
               <div className="relative" ref={profileRef}>
                 <button
+                  ref={profileButtonRef}
                   onClick={() => setProfileOpen((v) => !v)}
                   aria-expanded={profileOpen}
                   aria-controls="profiel-menu"
@@ -119,6 +147,7 @@ export function Navbar() {
 
         {/* Mobile toggle */}
         <button
+          ref={mobileButtonRef}
           className="md:hidden rounded-md p-2 text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
           aria-expanded={mobileOpen}
           aria-controls="mobiel-menu"
@@ -151,10 +180,10 @@ export function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  aria-current={pathname === link.href ? 'page' : undefined}
+                  aria-current={isActive(link.href) ? 'page' : undefined}
                   onClick={() => setMobileOpen(false)}
                   className={`block rounded-md px-3 py-2 text-sm font-medium ${
-                    pathname === link.href ? 'bg-brand-soft text-brand' : 'text-muted hover:bg-brand-soft/50'
+                    isActive(link.href) ? 'bg-brand-soft text-brand' : 'text-muted hover:bg-brand-soft/50'
                   }`}
                 >
                   {link.label}

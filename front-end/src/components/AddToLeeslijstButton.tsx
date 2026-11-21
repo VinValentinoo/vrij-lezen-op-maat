@@ -2,10 +2,12 @@
 
 import { useState } from 'react';
 import { apiFetch } from '@/lib/api-client';
+import { ApiError, getErrorMessage } from '@/lib/api-error';
+import { Alert } from './ui/Alert';
 import { Button } from './ui/Button';
 
 type Props = {
-  catalogusItemId: string;
+    catalogusItemId: string;
 };
 
 export function AddToLeeslijstButton({ catalogusItemId }: Props) {
@@ -13,22 +15,22 @@ export function AddToLeeslijstButton({ catalogusItemId }: Props) {
     const [err, setErr] = useState('');
 
     async function handleClick() {
-        setErr('')
+        setErr('');
 
         try {
             await apiFetch<unknown>('/leeslijst', {
                 method: 'POST',
-                body: JSON.stringify({ catalogusItemId })
+                body: JSON.stringify({ catalogusItemId }),
             });
 
             setAdded(true);
-        } catch(err) {
-            if (err instanceof Error && err.message.includes('al op je leeslijst')) {
+        } catch (error) {
+            // 409 Conflict = staat al op de leeslijst. Dat herkennen we aan de
+            // statuscode in plaats van aan de tekst van de foutmelding.
+            if (error instanceof ApiError && error.status === 409) {
                 setAdded(true);
-            } else if(err instanceof Error) {
-                setErr(err.message);
             } else {
-                setErr('Er is iets mis gegaan')
+                setErr(getErrorMessage(error));
             }
         }
     }
@@ -36,9 +38,9 @@ export function AddToLeeslijstButton({ catalogusItemId }: Props) {
     return (
         <div>
             <Button onClick={handleClick} disabled={added}>
-                {added ? '✓ Toegevoegd': 'Toevoegen aan leeslijst'}
+                {added ? '✓ Toegevoegd' : 'Toevoegen aan leeslijst'}
             </Button>
-            {err && <p role='alert'>{err}</p>}
+            {err && <Alert className="mt-2">{err}</Alert>}
         </div>
     );
 }

@@ -7,9 +7,17 @@
  */
 
 export type CatalogusControllerFindAllParams = {
-page?: string;
+/**
+ * @minimum 1
+ */
+page?: number;
 taalniveau?: string;
 genre?: string;
 onderwerp?: string;
 lengte?: string;
+/**
+ * @minimum 1
+ * @maximum 500
+ */
+pageSize?: number;
 };

@@ -12,9 +12,10 @@ import { LeeslijstModule } from './modules/leeslijst/leeslijst.module';
 import { KoppelingModule } from './modules/koppeling/koppeling.module';
 import { DocentModule } from './modules/docent/docent.module';
 
-// NB: modules/auth, modules/profile, modules/advies, modules/catalogus en
-// modules/leeslijst zijn hier als lege scaffolds neergezet. Elke module krijgt
-// straks zijn eigen controller -> service -> repository laag (zie README).
+// Elke feature is een eigen NestJS-module met controller -> service. Services
+// praten rechtstreeks met de ORM (PrismaService voor Postgres, CatalogusService
+// voor de Mongo-catalogus). Een aparte repository-laag is bewust weggelaten: zie
+// .docs/AFWIJKINGEN.md.
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),

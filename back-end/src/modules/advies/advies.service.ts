@@ -1,15 +1,13 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
 import { CatalogusItem } from '../catalogus/schemas/catalogus-item.schema';
-import { Model } from 'mongoose';
+import { CatalogusService } from '../catalogus/catalogus.service';
 import { PrismaService } from '../../prisma/prisma.service';
 import { ReadingProfile } from '@prisma/client';
 
 @Injectable()
 export class AdviesService {
   constructor(
-    @InjectModel(CatalogusItem.name)
-    private catalogusModel: Model<CatalogusItem>,
+    private catalogusService: CatalogusService,
     private prisma: PrismaService,
   ) {}
 
@@ -30,7 +28,7 @@ export class AdviesService {
       bestaandeLeeslijst.map((item) => item.catalogusItemId),
     );
 
-    const catalogusItems = await this.catalogusModel.find().exec();
+    const catalogusItems = await this.catalogusService.findAllItems();
     const beschikbareItems = catalogusItems.filter(
       (item) => !uitgeslotenIds.has(item._id.toString()),
     );

@@ -1,26 +1,31 @@
-import { Body, Controller, Get, Put, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Put } from '@nestjs/common';
+import { ApiOkResponse } from '@nestjs/swagger';
 import { ProfileService } from './profile.service';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { ApiBearerAuth } from '@nestjs/swagger';
 import { UpdateProfileDto } from './dto/update-profile.dto';
-import { AuthenticatedRequest } from '../auth/types/authenticated-request';
+import { ReadingProfileResponseDto } from './dto/reading-profile-response.dto';
+import { Auth } from '../auth/decorators/auth.decorator';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
 
 @Controller('profile')
-@UseGuards(JwtAuthGuard)
-@ApiBearerAuth()
+@Auth()
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
   @Get()
-  async getProfile(@Req() req: AuthenticatedRequest) {
-    return this.profileService.getProfile(req.user.userId);
+  @ApiOkResponse({
+    type: ReadingProfileResponseDto,
+    description: 'Het leesprofiel, of een lege response als er nog geen is',
+  })
+  async getProfile(@CurrentUser('userId') userId: string) {
+    return this.profileService.getProfile(userId);
   }
 
   @Put()
+  @ApiOkResponse({ type: ReadingProfileResponseDto })
   async upsertProfile(
-    @Req() req: AuthenticatedRequest,
+    @CurrentUser('userId') userId: string,
     @Body() dto: UpdateProfileDto,
   ) {
-    return this.profileService.upsertProfile(req.user.userId, dto);
+    return this.profileService.upsertProfile(userId, dto);
   }
 }

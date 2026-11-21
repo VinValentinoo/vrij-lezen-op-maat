@@ -6,15 +6,12 @@ import {
 import { PrismaService } from '../../prisma/prisma.service';
 import { isUniqueConstraintError } from '../../prisma/prisma-errors';
 import { AddLeeslijstItemDto } from './dto/add-leeslijst-item.dto';
-import { InjectModel } from '@nestjs/mongoose';
-import { CatalogusItem } from '../catalogus/schemas/catalogus-item.schema';
-import { Model } from 'mongoose';
+import { CatalogusService } from '../catalogus/catalogus.service';
 
 @Injectable()
 export class LeeslijstService {
   constructor(
-    @InjectModel(CatalogusItem.name)
-    private catalogusModel: Model<CatalogusItem>,
+    private catalogusService: CatalogusService,
     private prisma: PrismaService,
   ) {}
 
@@ -25,9 +22,8 @@ export class LeeslijstService {
 
     const catalogusItemIds = items.map((item) => item.catalogusItemId);
 
-    const catalogusItems = await this.catalogusModel
-      .find({ _id: { $in: catalogusItemIds } })
-      .exec();
+    const catalogusItems =
+      await this.catalogusService.findByIds(catalogusItemIds);
 
     return items.map((item) => {
       const catalogusItem = catalogusItems.find(

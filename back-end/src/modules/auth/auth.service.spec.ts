@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 import { PrismaService } from '../../prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { ConflictException } from '@nestjs/common';
+import { Role } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 
 jest.mock('bcrypt');
@@ -51,7 +52,7 @@ describe('AuthService', () => {
       email: 'test@test.nl',
       password: 'wachtwoord123',
       name: 'Test',
-      role: 'STUDENT' as any,
+      role: Role.STUDENT,
     });
 
     expect(result.email).toBe('test@test.nl');
@@ -72,7 +73,7 @@ describe('AuthService', () => {
         email: 'test@test.nl',
         password: 'wachtwoord123',
         name: 'Test',
-        role: 'STUDENT' as any,
+        role: Role.STUDENT,
       }),
     ).rejects.toThrow(ConflictException);
   });

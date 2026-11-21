@@ -5,47 +5,47 @@ import {
   Param,
   ParseUUIDPipe,
   Post,
-  Req,
-  UseGuards,
 } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
-import { ApiBearerAuth } from '@nestjs/swagger';
-import { Roles } from '../auth/decorators/roles.decorator';
+import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { DocentService } from './docent.service';
+import { GekoppeldeStudentDto } from './dto/gekoppelde-student.dto';
 import { AddLeeslijstItemDto } from '../leeslijst/dto/add-leeslijst-item.dto';
-import { AuthenticatedRequest } from '../auth/types/authenticated-request';
+import {
+  LeeslijstItemDto,
+  ReadingListItemDto,
+} from '../leeslijst/dto/leeslijst-response.dto';
+import { Auth } from '../auth/decorators/auth.decorator';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
 
+// @Auth('DOCENT') = JwtAuthGuard + RolesGuard + @Roles('DOCENT') voor alle routes.
+// De RolesGuard leest deze class-level metadata via getAllAndOverride.
 @Controller('docent')
-@UseGuards(JwtAuthGuard, RolesGuard)
-@Roles('DOCENT')
-@ApiBearerAuth()
+@Auth('DOCENT')
 export class DocentController {
   constructor(private readonly docentenService: DocentService) {}
 
   @Get()
-  async getGekoppeldeStudenten(@Req() req: AuthenticatedRequest) {
-    return this.docentenService.getGekoppeldeStudenten(req.user.userId);
+  @ApiOkResponse({ type: GekoppeldeStudentDto, isArray: true })
+  async getGekoppeldeStudenten(@CurrentUser('userId') docentId: string) {
+    return this.docentenService.getGekoppeldeStudenten(docentId);
   }
 
   @Get(':studentId/leeslijst')
+  @ApiOkResponse({ type: LeeslijstItemDto, isArray: true })
   async getStudentenLijst(
-    @Req() req: AuthenticatedRequest,
+    @CurrentUser('userId') docentId: string,
     @Param('studentId', ParseUUIDPipe) studentId: string,
   ) {
-    return this.docentenService.getStudentLeeslijst(req.user.userId, studentId);
+    return this.docentenService.getStudentLeeslijst(docentId, studentId);
   }
 
   @Post(':studentId/leeslijst')
+  @ApiCreatedResponse({ type: ReadingListItemDto })
   async addToStudentLeeslijst(
-    @Req() req: AuthenticatedRequest,
+    @CurrentUser('userId') docentId: string,
     @Param('studentId', ParseUUIDPipe) studentId: string,
     @Body() dto: AddLeeslijstItemDto,
   ) {
-    return this.docentenService.addToStudentLeeslijst(
-      req.user.userId,
-      studentId,
-      dto,
-    );
+    return this.docentenService.addToStudentLeeslijst(docentId, studentId, dto);
   }
 }

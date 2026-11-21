@@ -1,8 +1,9 @@
 import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 
-// Repository-laag (services in de losse modules) praat met Postgres via deze
-// service. Zo blijft businesslogica gescheiden van de datalaag (NFR1).
+// Eén gedeelde PrismaClient als NestJS-provider (het aanbevolen patroon uit de
+// NestJS/Prisma-documentatie). Services injecteren deze via dependency injection;
+// PrismaModule is @Global, dus niet elke module hoeft hem te importeren.
 @Injectable()
 export class PrismaService
   extends PrismaClient

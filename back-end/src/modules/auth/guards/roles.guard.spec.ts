@@ -29,7 +29,8 @@ function maakContext(
   user?: { role?: string },
 ): ExecutionContext {
   return {
-    getHandler: () => (controller.prototype as Record<string, () => void>)[methode],
+    getHandler: () =>
+      (controller.prototype as Record<string, () => void>)[methode],
     getClass: () => controller,
     switchToHttp: () => ({ getRequest: () => ({ user }) }),
   } as unknown as ExecutionContext;
@@ -43,12 +44,16 @@ describe('RolesGuard', () => {
   });
 
   it('laat een DOCENT door bij @Roles op class-niveau', () => {
-    const ctx = maakContext(ClassLevelController, 'methode', { role: 'DOCENT' });
+    const ctx = maakContext(ClassLevelController, 'methode', {
+      role: 'DOCENT',
+    });
     expect(guard.canActivate(ctx)).toBe(true);
   });
 
   it('weigert een STUDENT bij @Roles("DOCENT") op class-niveau (regressietest voor de bug)', () => {
-    const ctx = maakContext(ClassLevelController, 'methode', { role: 'STUDENT' });
+    const ctx = maakContext(ClassLevelController, 'methode', {
+      role: 'STUDENT',
+    });
     expect(guard.canActivate(ctx)).toBe(false);
   });
 
@@ -65,7 +70,9 @@ describe('RolesGuard', () => {
   it('respecteert @Roles op methode-niveau', () => {
     expect(
       guard.canActivate(
-        maakContext(MethodLevelController, 'alleenStudent', { role: 'STUDENT' }),
+        maakContext(MethodLevelController, 'alleenStudent', {
+          role: 'STUDENT',
+        }),
       ),
     ).toBe(true);
     expect(
@@ -76,7 +83,9 @@ describe('RolesGuard', () => {
   });
 
   it('methode-niveau gaat voor class-niveau (override)', () => {
-    const ctx = maakContext(OverrideController, 'alleenStudent', { role: 'STUDENT' });
+    const ctx = maakContext(OverrideController, 'alleenStudent', {
+      role: 'STUDENT',
+    });
     expect(guard.canActivate(ctx)).toBe(true);
   });
 

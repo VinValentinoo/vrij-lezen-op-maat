@@ -6,39 +6,50 @@ import {
   ParseUUIDPipe,
   Patch,
   Post,
-  Req,
-  UseGuards,
 } from '@nestjs/common';
+import {
+  ApiConflictResponse,
+  ApiCreatedResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+} from '@nestjs/swagger';
 import { LeeslijstService } from './leeslijst.service';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { ApiBearerAuth } from '@nestjs/swagger';
 import { AddLeeslijstItemDto } from './dto/add-leeslijst-item.dto';
-import { AuthenticatedRequest } from '../auth/types/authenticated-request';
+import {
+  LeeslijstItemDto,
+  ReadingListItemDto,
+} from './dto/leeslijst-response.dto';
+import { Auth } from '../auth/decorators/auth.decorator';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
 
 @Controller('leeslijst')
-@UseGuards(JwtAuthGuard)
-@ApiBearerAuth()
+@Auth()
 export class LeeslijstController {
   constructor(private readonly leeslijstService: LeeslijstService) {}
 
   @Get()
-  async getLeeslijst(@Req() req: AuthenticatedRequest) {
-    return this.leeslijstService.getLeeslijst(req.user.userId);
+  @ApiOkResponse({ type: LeeslijstItemDto, isArray: true })
+  async getLeeslijst(@CurrentUser('userId') userId: string) {
+    return this.leeslijstService.getLeeslijst(userId);
   }
 
   @Post()
+  @ApiCreatedResponse({ type: ReadingListItemDto })
+  @ApiConflictResponse({ description: 'Dit boek staat al in de leeslijst' })
   async addToLeeslijst(
-    @Req() req: AuthenticatedRequest,
+    @CurrentUser('userId') userId: string,
     @Body() dto: AddLeeslijstItemDto,
   ) {
-    return this.leeslijstService.addToLeeslijst(req.user.userId, dto);
+    return this.leeslijstService.addToLeeslijst(userId, dto);
   }
 
   @Patch(':id/toggle')
+  @ApiOkResponse({ type: ReadingListItemDto })
+  @ApiNotFoundResponse({ description: 'Item bestaat niet of is niet van jou' })
   async toggleStatus(
-    @Req() req: AuthenticatedRequest,
+    @CurrentUser('userId') userId: string,
     @Param('id', ParseUUIDPipe) id: string,
   ) {
-    return this.leeslijstService.toggleStatus(req.user.userId, id);
+    return this.leeslijstService.toggleStatus(userId, id);
   }
 }

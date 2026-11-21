@@ -1,17 +1,21 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { ApiNotFoundResponse, ApiOkResponse } from '@nestjs/swagger';
 import { AdviesService } from './advies.service';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { ApiBearerAuth } from '@nestjs/swagger';
-import { AuthenticatedRequest } from '../auth/types/authenticated-request';
+import { AdviesItemDto } from './dto/advies-item.dto';
+import { Auth } from '../auth/decorators/auth.decorator';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
 
 @Controller('advies')
-@UseGuards(JwtAuthGuard)
-@ApiBearerAuth()
+@Auth()
 export class AdviesController {
-  constructor(private readonly adviesServce: AdviesService) {}
+  constructor(private readonly adviesService: AdviesService) {}
 
   @Get()
-  async getAdvies(@Req() req: AuthenticatedRequest) {
-    return this.adviesServce.getAdvies(req.user.userId);
+  @ApiOkResponse({ type: AdviesItemDto, isArray: true })
+  @ApiNotFoundResponse({
+    description: 'De gebruiker heeft nog geen leesprofiel',
+  })
+  async getAdvies(@CurrentUser('userId') userId: string) {
+    return this.adviesService.getAdvies(userId);
   }
 }

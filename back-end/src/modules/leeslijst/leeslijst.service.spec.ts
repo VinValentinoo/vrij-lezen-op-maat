@@ -1,10 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ConflictException, NotFoundException } from '@nestjs/common';
-import { getModelToken } from '@nestjs/mongoose';
 import { Prisma } from '@prisma/client';
 import { LeeslijstService } from './leeslijst.service';
 import { PrismaService } from '../../prisma/prisma.service';
-import { CatalogusItem } from '../catalogus/schemas/catalogus-item.schema';
+import { CatalogusService } from '../catalogus/catalogus.service';
 
 const BOEK_ID = '507f1f77bcf86cd799439011';
 
@@ -18,15 +17,15 @@ describe('LeeslijstService', () => {
       update: jest.Mock;
     };
   };
-  let catalogusModel: { find: jest.Mock };
+  let catalogusService: { findByIds: jest.Mock };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         LeeslijstService,
         {
-          provide: getModelToken(CatalogusItem.name),
-          useValue: { find: jest.fn() },
+          provide: CatalogusService,
+          useValue: { findByIds: jest.fn() },
         },
         {
           provide: PrismaService,
@@ -44,7 +43,7 @@ describe('LeeslijstService', () => {
 
     service = module.get<LeeslijstService>(LeeslijstService);
     prisma = module.get(PrismaService);
-    catalogusModel = module.get(getModelToken(CatalogusItem.name));
+    catalogusService = module.get(CatalogusService);
   });
 
   describe('getLeeslijst', () => {
@@ -52,22 +51,27 @@ describe('LeeslijstService', () => {
       prisma.readingListItem.findMany.mockResolvedValue([
         { id: 'i1', status: 'NIET_GELEZEN', catalogusItemId: BOEK_ID },
       ]);
-      catalogusModel.find.mockReturnValue({
-        exec: jest.fn().mockResolvedValue([
-          { _id: { toString: () => BOEK_ID }, titel: 'Titel', beschrijving: 'Uitleg' },
-        ]),
-      });
+      catalogusService.findByIds.mockResolvedValue([
+        {
+          _id: { toString: () => BOEK_ID },
+          titel: 'Titel',
+          beschrijving: 'Uitleg',
+        },
+      ]);
 
       await expect(service.getLeeslijst('u1')).resolves.toEqual([
-        { id: 'i1', status: 'NIET_GELEZEN', titel: 'Titel', beschrijving: 'Uitleg' },
+        {
+          id: 'i1',
+          status: 'NIET_GELEZEN',
+          titel: 'Titel',
+          beschrijving: 'Uitleg',
+        },
       ]);
     });
 
     it('geeft een lege lijst terug als de gebruiker niets heeft toegevoegd (randgeval)', async () => {
       prisma.readingListItem.findMany.mockResolvedValue([]);
-      catalogusModel.find.mockReturnValue({
-        exec: jest.fn().mockResolvedValue([]),
-      });
+      catalogusService.findByIds.mockResolvedValue([]);
 
       await expect(service.getLeeslijst('u1')).resolves.toEqual([]);
     });
@@ -114,7 +118,10 @@ describe('LeeslijstService', () => {
         userId: 'u1',
         status: 'NIET_GELEZEN',
       });
-      prisma.readingListItem.update.mockResolvedValue({ id: 'i1', status: 'GELEZEN' });
+      prisma.readingListItem.update.mockResolvedValue({
+        id: 'i1',
+        status: 'GELEZEN',
+      });
 
       await service.toggleStatus('u1', 'i1');
 

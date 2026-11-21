@@ -1,7 +1,12 @@
 import { getToken } from './cookies';
+import { parseBody } from './api-error';
+import { throwIfNotOk } from './api-client';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
 
+// Mutator voor de door Orval gegenereerde client: voegt het JWT toe en gebruikt
+// dezelfde foutafhandeling als apiFetch. Bij login/register (/auth/...) betekent
+// een 401 "verkeerd wachtwoord" en geen verlopen sessie, dus daar geen redirect.
 export const customFetch = async <T>(
     url: string,
     options: RequestInit,
@@ -17,17 +22,8 @@ export const customFetch = async <T>(
         },
     });
 
-    if (!res.ok) {
-        let message = `API-fout (${res.status}): ${res.statusText}`;
-        try {
-            const errorBody = await res.json();
-            if (errorBody.message) message = errorBody.message;
-        } catch {
-           
-        }
-        throw new Error(message);
-    }
+    await throwIfNotOk(res, Boolean(token), !url.startsWith('/auth/'));
 
-    const data = (await res.json()) as T;
-    return { data, status: res.status, headers: res.headers} as T;
+    const data = await parseBody<unknown>(res);
+    return { data, status: res.status, headers: res.headers } as T;
 }

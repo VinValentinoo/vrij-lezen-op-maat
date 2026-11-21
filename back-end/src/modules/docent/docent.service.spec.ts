@@ -79,7 +79,12 @@ describe('DocentService', () => {
       prisma.studentDocentKoppeling.findMany.mockResolvedValue([
         {
           id: 'k1',
-          student: { id: 's1', naam: 'A', email: 'a@t.nl', readingProfile: null },
+          student: {
+            id: 's1',
+            naam: 'A',
+            email: 'a@t.nl',
+            readingProfile: null,
+          },
         },
       ]);
 

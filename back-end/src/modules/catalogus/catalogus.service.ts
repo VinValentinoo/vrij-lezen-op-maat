@@ -38,4 +38,15 @@ export class CatalogusService {
       pageSize,
     };
   }
+
+  // Voor andere modules: de volledige catalogus (bv. om advies te berekenen).
+  async findAllItems(): Promise<CatalogusItem[]> {
+    return this.catalogusModel.find().exec();
+  }
+
+  // Voor andere modules: titels ophalen op basis van hun ids (bv. leeslijst).
+  async findByIds(ids: string[]): Promise<CatalogusItem[]> {
+    if (ids.length === 0) return [];
+    return this.catalogusModel.find({ _id: { $in: ids } }).exec();
+  }
 }

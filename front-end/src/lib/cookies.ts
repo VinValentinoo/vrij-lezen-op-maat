@@ -1,9 +1,13 @@
-// Waarom geen cookie store?
-// Dit is omdat de cookie store een relatief nieuwe web api is die nog niet ondersteund word op Safari en Firefox alleen Chormium browsers
+// Waarom geen Cookie Store API?
+// De Cookie Store API wordt nog niet door Safari en Firefox ondersteund (alleen Chromium).
+//
+// Bewuste afwijking (zie .docs/AFWIJKINGEN.md): het token staat in een gewone
+// cookie die JavaScript kan lezen. Daardoor kan zowel de client (apiFetch) als de
+// Next.js-server (middleware, server components via cookies()) het token gebruiken.
+// Een HttpOnly-cookie zou veiliger zijn tegen XSS, maar vraagt een BFF/route handler.
 
 export function setToken(token: string) {
     document.cookie = `token=${token}; path=/; max-age=86400; SameSite=Strict`;
-    window.dispatchEvent(new Event('auth-changed'));
 }
 
 export function getToken() {
@@ -11,8 +15,8 @@ export function getToken() {
         .split("; ")
         .find((row) => row.startsWith('token='))
         ?.split("=")[1];
-    
-    if(!cookieToken) {
+
+    if (!cookieToken) {
         return null;
     }
 
@@ -21,5 +25,4 @@ export function getToken() {
 
 export function deleteToken() {
     document.cookie = `token=; path=/; max-age=0; SameSite=Strict`;
-    window.dispatchEvent(new Event('auth-changed'));
 }
