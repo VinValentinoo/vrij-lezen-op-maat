@@ -12,10 +12,9 @@ export class CatalogusService {
   ) {}
 
   async findAll(query: CatalogusQueryDto) {
-    const pageSize = query.pageSize
-      ? Math.min(parseInt(query.pageSize, 10), 500)
-      : 10;
-    const page = query.page ? parseInt(query.page, 10) : 1;
+    // Validatie (>= 1, pageSize <= 500) gebeurt al in CatalogusQueryDto.
+    const pageSize = query.pageSize ?? 10;
+    const page = query.page ?? 1;
 
     const filter: Record<string, string> = {};
     if (query.taalniveau) filter.taalniveau = query.taalniveau;

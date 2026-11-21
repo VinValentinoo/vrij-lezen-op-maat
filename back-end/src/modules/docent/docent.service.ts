@@ -11,16 +11,36 @@ export class DocentService {
   ) {}
 
   async getGekoppeldeStudenten(docentId: string) {
-    const koppeling = await this.prisma.studentDocentKoppeling.findMany({
-      where: { docentId: docentId },
-      include: {
-        student: { include: { readingProfile: true } },
+    // select i.p.v. include: we halen alleen op wat de docent mag en moet zien.
+    // Met include werd het volledige User-record (incl. wachtwoordHash)
+    // meegestuurd naar de client.
+    const koppelingen = await this.prisma.studentDocentKoppeling.findMany({
+      where: { docentId },
+      select: {
+        id: true,
+        student: {
+          select: {
+            id: true,
+            naam: true,
+            email: true,
+            readingProfile: { select: { id: true } },
+          },
+        },
       },
     });
 
-    return koppeling
+    // Expliciet mappen naar een publiek model, zodat een toekomstig extra
+    // veld nooit per ongeluk in de response belandt.
+    return koppelingen
       .filter((k) => k.student.readingProfile)
-      .map((k) => ({ id: k.id, user: k.student }));
+      .map((k) => ({
+        id: k.id,
+        user: {
+          id: k.student.id,
+          naam: k.student.naam,
+          email: k.student.email,
+        },
+      }));
   }
 
   async getStudentLeeslijst(docentId: string, studentId: string) {

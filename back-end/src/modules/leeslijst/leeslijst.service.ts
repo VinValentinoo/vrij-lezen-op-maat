@@ -4,6 +4,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
+import { isUniqueConstraintError } from '../../prisma/prisma-errors';
 import { AddLeeslijstItemDto } from './dto/add-leeslijst-item.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { CatalogusItem } from '../catalogus/schemas/catalogus-item.schema';
@@ -50,8 +51,13 @@ export class LeeslijstService {
           catalogusItemId: dto.catalogusItemId,
         },
       });
-    } catch {
-      throw new ConflictException('Dit boek staat al in je leeslijst.');
+    } catch (error) {
+      // Alleen een unique-constraint-fout (@@unique([userId, catalogusItemId]))
+      // betekent "staat er al in"; andere fouten gooien we gewoon door.
+      if (isUniqueConstraintError(error)) {
+        throw new ConflictException('Dit boek staat al in je leeslijst.');
+      }
+      throw error;
     }
   }
 

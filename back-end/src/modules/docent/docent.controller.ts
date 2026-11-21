@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Param,
+  ParseUUIDPipe,
   Post,
   Req,
   UseGuards,
@@ -30,7 +31,7 @@ export class DocentController {
   @Get(':studentId/leeslijst')
   async getStudentenLijst(
     @Req() req: AuthenticatedRequest,
-    @Param('studentId') studentId: string,
+    @Param('studentId', ParseUUIDPipe) studentId: string,
   ) {
     return this.docentenService.getStudentLeeslijst(req.user.userId, studentId);
   }
@@ -38,7 +39,7 @@ export class DocentController {
   @Post(':studentId/leeslijst')
   async addToStudentLeeslijst(
     @Req() req: AuthenticatedRequest,
-    @Param('studentId') studentId: string,
+    @Param('studentId', ParseUUIDPipe) studentId: string,
     @Body() dto: AddLeeslijstItemDto,
   ) {
     return this.docentenService.addToStudentLeeslijst(

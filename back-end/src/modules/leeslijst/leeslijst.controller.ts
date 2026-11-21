@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Param,
+  ParseUUIDPipe,
   Patch,
   Post,
   Req,
@@ -36,7 +37,7 @@ export class LeeslijstController {
   @Patch(':id/toggle')
   async toggleStatus(
     @Req() req: AuthenticatedRequest,
-    @Param('id') id: string,
+    @Param('id', ParseUUIDPipe) id: string,
   ) {
     return this.leeslijstService.toggleStatus(req.user.userId, id);
   }
