@@ -2,9 +2,9 @@
 
 import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
-import { apiFetch } from '@/lib/api-client';
 import { getErrorMessage } from '@/lib/api-error';
-import type { LeesStatus } from '@/lib/types';
+import { leeslijstControllerToggleStatus } from '@/lib/generated';
+import type { LeesStatus } from '@/lib/generated/models';
 import { Alert } from '../ui/Alert';
 import { Button } from '../ui/Button';
 
@@ -25,7 +25,7 @@ export function ToggleStatusButton({ id, status }: Props) {
         setErr('');
 
         try {
-            await apiFetch(`/leeslijst/${id}/toggle`, { method: 'PATCH' });
+            await leeslijstControllerToggleStatus(id);
             startTransition(() => router.refresh());
         } catch (error) {
             setErr(getErrorMessage(error));

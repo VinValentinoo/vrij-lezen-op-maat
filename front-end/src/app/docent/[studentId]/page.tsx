@@ -4,27 +4,31 @@ import { notFound } from 'next/navigation';
 import { BookCard, BookGrid } from '@/components/BookCard';
 import { BoekToevoegen } from '@/components/docent/BoekToevoegen';
 import { PageTitle } from '@/components/ui/PageTitle';
-import { serverFetch } from '@/lib/api-server';
-import type { CatalogusPage, LeeslijstItem, Student } from '@/lib/types';
+import { unwrap } from '@/lib/api-result';
+import {
+    catalogusControllerFindAll,
+    docentControllerGetGekoppeldeStudenten,
+    docentControllerGetStudentenLijst,
+} from '@/lib/generated-server';
 
 export const metadata: Metadata = { title: 'Leeslijst van student' };
 
 // Dynamische route: [studentId] komt als params.studentId binnen.
 export default async function StudentLeeslijstPage({ params }: { params: { studentId: string } }) {
-    const [studenten, catalogus] = await Promise.all([
-        serverFetch<Student[]>('/docent', { auth: true }),
-        serverFetch<CatalogusPage>('/catalogus?pageSize=500'),
+    const [studentenRes, catalogusRes] = await Promise.all([
+        docentControllerGetGekoppeldeStudenten(),
+        // Publieke data: Next cachet dit 60 seconden (zie orval-server-mutator.ts).
+        catalogusControllerFindAll({ pageSize: 500 }, { next: { revalidate: 60 } }),
     ]);
+    const studenten = unwrap(studentenRes);
+    const catalogus = unwrap(catalogusRes);
 
     // Alleen aan jou gekoppelde studenten: een willekeurig of verzonnen id geeft de
     // 404-pagina (notFound) en nooit andermans gegevens.
     const student = studenten.find((s) => s.user.id === params.studentId);
     if (!student) notFound();
 
-    const leeslijst = await serverFetch<LeeslijstItem[]>(
-        `/docent/${student.user.id}/leeslijst`,
-        { auth: true },
-    );
+    const leeslijst = unwrap(await docentControllerGetStudentenLijst(student.user.id));
 
     const boeken = catalogus.items.map((item) => ({ id: item._id, titel: item.titel }));
 

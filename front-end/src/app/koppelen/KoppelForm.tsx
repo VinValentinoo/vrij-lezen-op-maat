@@ -4,11 +4,11 @@ import { FormEvent, useState } from 'react';
 import { Alert } from '@/components/ui/Alert';
 import { Button } from '@/components/ui/Button';
 import { SelectField } from '@/components/ui/SelectField';
-import { apiFetch } from '@/lib/api-client';
 import { getErrorMessage } from '@/lib/api-error';
-import type { Docent } from '@/lib/types';
+import { koppelingControllerKoppelAanDocent } from '@/lib/generated';
+import type { DocentDto } from '@/lib/generated/models';
 
-export function KoppelForm({ docenten }: { docenten: Docent[] }) {
+export function KoppelForm({ docenten }: { docenten: DocentDto[] }) {
     const [gekozenDocentId, setGekozenDocentId] = useState('');
     const [err, setErr] = useState('');
     const [succes, setSucces] = useState(false);
@@ -21,10 +21,7 @@ export function KoppelForm({ docenten }: { docenten: Docent[] }) {
         setBezig(true);
 
         try {
-            await apiFetch('/koppeling', {
-                method: 'POST',
-                body: JSON.stringify({ docentId: gekozenDocentId }),
-            });
+            await koppelingControllerKoppelAanDocent({ docentId: gekozenDocentId });
             setSucces(true);
         } catch (error) {
             setErr(getErrorMessage(error));

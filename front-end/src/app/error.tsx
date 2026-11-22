@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useTransition } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import { PageTitle } from '@/components/ui/PageTitle';
 
@@ -14,9 +15,22 @@ export default function ErrorPage({
     error: Error & { digest?: string };
     reset: () => void;
 }) {
+    const router = useRouter();
+    const [pending, startTransition] = useTransition();
+
     useEffect(() => {
         console.error(error);
     }, [error]);
+
+    // reset() alleen probeert de boundary opnieuw te tonen met de OUDE server-uitkomst,
+    // dus er gebeurt niets. router.refresh() haalt de server components opnieuw op;
+    // samen in een transition vervangt Next de foutmelding pas als dat gelukt is.
+    function opnieuwProberen() {
+        startTransition(() => {
+            router.refresh();
+            reset();
+        });
+    }
 
     return (
         <div role="alert">
@@ -24,7 +38,9 @@ export default function ErrorPage({
             <p className="mb-4 text-sm text-muted">
                 De gegevens konden niet worden opgehaald. Controleer je verbinding en probeer het opnieuw.
             </p>
-            <Button onClick={reset}>Opnieuw proberen</Button>
+            <Button onClick={opnieuwProberen} disabled={pending}>
+                Opnieuw proberen
+            </Button>
         </div>
     );
 }

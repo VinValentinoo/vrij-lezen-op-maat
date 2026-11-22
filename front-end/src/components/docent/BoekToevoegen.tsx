@@ -2,8 +2,8 @@
 
 import { FormEvent, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { apiFetch } from '@/lib/api-client';
 import { getErrorMessage } from '@/lib/api-error';
+import { docentControllerAddToStudentLeeslijst } from '@/lib/generated';
 import { Alert } from '../ui/Alert';
 import { Button } from '../ui/Button';
 import { TextField } from '../ui/TextField';
@@ -40,10 +40,7 @@ export function BoekToevoegen({ studentId, boeken }: Props) {
         setBezig(true);
 
         try {
-            await apiFetch(`/docent/${studentId}/leeslijst`, {
-                method: 'POST',
-                body: JSON.stringify({ catalogusItemId: gekozenBoek.id }),
-            });
+            await docentControllerAddToStudentLeeslijst(studentId, { catalogusItemId: gekozenBoek.id });
             setSucces(true);
             setZoekterm('');
             router.refresh(); // leeslijst (server component) opnieuw ophalen

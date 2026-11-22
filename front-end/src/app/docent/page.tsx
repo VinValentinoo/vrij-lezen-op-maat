@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { PageTitle } from '@/components/ui/PageTitle';
-import { serverFetch } from '@/lib/api-server';
-import type { Student } from '@/lib/types';
+import { unwrap } from '@/lib/api-result';
+import { docentControllerGetGekoppeldeStudenten } from '@/lib/generated-server';
 
 export const metadata: Metadata = { title: 'Docentoverzicht' };
 
 // De rolcheck zit niet meer in deze pagina: src/middleware.ts stuurt niet-docenten
 // weg voordat de pagina rendert, en de back-end (RolesGuard) blijft de echte slot.
 export default async function DocentPage() {
-    const studenten = await serverFetch<Student[]>('/docent', { auth: true });
+    const studenten = unwrap(await docentControllerGetGekoppeldeStudenten());
 
     return (
         <div>

@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import { PageTitle } from '@/components/ui/PageTitle';
-import { serverFetch } from '@/lib/api-server';
-import type { Docent } from '@/lib/types';
+import { unwrap } from '@/lib/api-result';
+import { koppelingControllerGetDocenten } from '@/lib/generated-server';
 import { KoppelForm } from './KoppelForm';
 
 export const metadata: Metadata = { title: 'Koppelen aan docent' };
 
 export default async function KoppelenPage() {
-    const docenten = await serverFetch<Docent[]>('/koppeling', { auth: true });
+    const docenten = unwrap(await koppelingControllerGetDocenten());
 
     return (
         <div className="max-w-md">

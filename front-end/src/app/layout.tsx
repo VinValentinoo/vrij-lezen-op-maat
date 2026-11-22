@@ -17,16 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="nl">
             <body className="min-h-screen bg-background text-ink">
-                {/* Skip-link: toetsenbordgebruikers kunnen de navigatie overslaan (WCAG 2.4.1). */}
-                <a
-                    href="#hoofdinhoud"
-                    className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-brand focus:shadow-md"
-                >
-                    Naar hoofdinhoud
-                </a>
                 <AuthProvider>
                     <Navbar />
-                    <main id="hoofdinhoud" tabIndex={-1} className="mx-auto max-w-5xl px-4 py-8 focus:outline-none">
+                    <main className="mx-auto max-w-5xl px-4 py-8">
                         {children}
                     </main>
                 </AuthProvider>

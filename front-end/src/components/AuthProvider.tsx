@@ -2,12 +2,14 @@
 
 import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { apiFetch } from '@/lib/api-client';
+import { unwrap } from '@/lib/api-result';
+import { ApiError } from '@/lib/api-error';
 import { deleteToken, getToken, setToken } from '@/lib/cookies';
-import type { CurrentUser } from '@/lib/types';
+import { authControllerMe } from '@/lib/generated';
+import type { CurrentUserDto } from '@/lib/generated/models';
 
 type AuthContextValue = {
-    user: CurrentUser | null;
+    user: CurrentUserDto | null;
     loading: boolean;
     login: (token: string) => Promise<void>;
     logout: () => void;
@@ -19,7 +21,7 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 // Eerder had elke component die de gebruiker nodig had een eigen /auth/me-call
 // en synchroniseerden ze via een zelfgemaakt 'auth-changed' window-event.
 export function AuthProvider({ children }: { children: ReactNode }) {
-    const [user, setUser] = useState<CurrentUser | null>(null);
+    const [user, setUser] = useState<CurrentUserDto | null>(null);
     const [loading, setLoading] = useState(true);
     const pathname = usePathname();
 
@@ -31,8 +33,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         }
 
         try {
-            setUser(await apiFetch<CurrentUser>('/auth/me'));
-        } catch {
+            setUser(unwrap(await authControllerMe()));
+        } catch (error) {
+            // Token is ongeldig of verlopen: opruimen, de gebruiker is dan niet ingelogd.
+            if (error instanceof ApiError && error.status === 401) deleteToken();
             setUser(null);
         } finally {
             setLoading(false);

@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { BookCard, BookGrid } from '@/components/BookCard';
 import { ToggleStatusButton } from '@/components/leeslijst/ToggleStatusButton';
 import { PageTitle } from '@/components/ui/PageTitle';
-import { serverFetch } from '@/lib/api-server';
-import type { LeeslijstItem } from '@/lib/types';
+import { unwrap } from '@/lib/api-result';
+import { leeslijstControllerGetLeeslijst } from '@/lib/generated-server';
 
 export const metadata: Metadata = { title: 'Leeslijst' };
 
 export default async function LeeslijstPage() {
-    const leeslijst = await serverFetch<LeeslijstItem[]>('/leeslijst', { auth: true });
+    const leeslijst = unwrap(await leeslijstControllerGetLeeslijst());
 
     return (
         <div>

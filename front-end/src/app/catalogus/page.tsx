@@ -5,9 +5,9 @@ import { Button } from '@/components/ui/Button';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { PageTitle } from '@/components/ui/PageTitle';
 import { SelectField } from '@/components/ui/SelectField';
-import { serverFetch } from '@/lib/api-server';
+import { unwrap } from '@/lib/api-result';
+import { catalogusControllerFindAll } from '@/lib/generated-server';
 import { GENRES, LENGTES, ONDERWERPEN, TAALNIVEAUS } from '@/lib/opties';
-import type { CatalogusPage as CatalogusData } from '@/lib/types';
 
 export const metadata: Metadata = { title: 'Catalogus' };
 
@@ -38,8 +38,19 @@ export default async function CatalogusPage({ searchParams }: { searchParams: Se
 
     const page = Math.max(1, Number.parseInt(eerste(searchParams.page) ?? '1', 10) || 1);
 
-    const data = await serverFetch<CatalogusData>(
-        `/catalogus?${bouwQuery({ ...filters, page: String(page) })}`,
+    // Lege filters worden undefined en dus niet meegestuurd. Publieke data: Next cachet
+    // het antwoord per unieke querystring 60 seconden.
+    const data = unwrap(
+        await catalogusControllerFindAll(
+            {
+                page,
+                taalniveau: filters.taalniveau || undefined,
+                genre: filters.genre || undefined,
+                onderwerp: filters.onderwerp || undefined,
+                lengte: filters.lengte || undefined,
+            },
+            { next: { revalidate: 60 } },
+        ),
     );
 
     const totalPages = Math.max(1, Math.ceil(data.total / data.pageSize));

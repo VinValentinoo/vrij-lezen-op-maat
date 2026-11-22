@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import type { LeesStatus } from '@/lib/types';
+import type { LeesStatus } from '@/lib/generated/models';
 
 type BookCardProps = {
     titel: string;

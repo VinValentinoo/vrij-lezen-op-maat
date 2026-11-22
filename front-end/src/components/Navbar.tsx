@@ -19,8 +19,6 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
-  const profileButtonRef = useRef<HTMLButtonElement>(null);
-  const mobileButtonRef = useRef<HTMLButtonElement>(null);
 
   const links = user?.role === 'DOCENT' ? [...baseLinks, { href: '/docent', label: 'Docent' }] : baseLinks;
   // Ook /docent/[studentId] hoort bij de actieve link "Docent".
@@ -35,28 +33,6 @@ export function Navbar() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-
-  // Escape sluit een open menu en zet de focus terug op de knop die het opende
-  // (toetsenbordgebruikers raken anders hun plek op de pagina kwijt).
-  useEffect(() => {
-    if (!profileOpen && !mobileOpen) return;
-
-    function handleKeyDown(e: KeyboardEvent) {
-      if (e.key !== 'Escape') return;
-
-      if (profileOpen) {
-        setProfileOpen(false);
-        profileButtonRef.current?.focus();
-      }
-      if (mobileOpen) {
-        setMobileOpen(false);
-        mobileButtonRef.current?.focus();
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [profileOpen, mobileOpen]);
 
   function handleLogout() {
     logout();
@@ -97,7 +73,6 @@ export function Navbar() {
             user ? (
               <div className="relative" ref={profileRef}>
                 <button
-                  ref={profileButtonRef}
                   onClick={() => setProfileOpen((v) => !v)}
                   aria-expanded={profileOpen}
                   aria-controls="profiel-menu"
@@ -147,7 +122,6 @@ export function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          ref={mobileButtonRef}
           className="md:hidden rounded-md p-2 text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
           aria-expanded={mobileOpen}
           aria-controls="mobiel-menu"

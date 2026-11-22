@@ -2,7 +2,7 @@
 // De Cookie Store API wordt nog niet door Safari en Firefox ondersteund (alleen Chromium).
 //
 // Bewuste afwijking (zie .docs/AFWIJKINGEN.md): het token staat in een gewone
-// cookie die JavaScript kan lezen. Daardoor kan zowel de client (apiFetch) als de
+// cookie die JavaScript kan lezen. Daardoor kan zowel de client (orval-mutator) als de
 // Next.js-server (middleware, server components via cookies()) het token gebruiken.
 // Een HttpOnly-cookie zou veiliger zijn tegen XSS, maar vraagt een BFF/route handler.
 

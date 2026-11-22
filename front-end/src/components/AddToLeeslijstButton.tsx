@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { apiFetch } from '@/lib/api-client';
 import { ApiError, getErrorMessage } from '@/lib/api-error';
+import { leeslijstControllerAddToLeeslijst } from '@/lib/generated';
 import { Alert } from './ui/Alert';
 import { Button } from './ui/Button';
 
@@ -18,10 +18,7 @@ export function AddToLeeslijstButton({ catalogusItemId }: Props) {
         setErr('');
 
         try {
-            await apiFetch<unknown>('/leeslijst', {
-                method: 'POST',
-                body: JSON.stringify({ catalogusItemId }),
-            });
+            await leeslijstControllerAddToLeeslijst({ catalogusItemId });
 
             setAdded(true);
         } catch (error) {

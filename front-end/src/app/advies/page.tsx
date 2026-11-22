@@ -4,16 +4,17 @@ import { BookCard, BookGrid } from '@/components/BookCard';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { PageTitle } from '@/components/ui/PageTitle';
 import { ApiError } from '@/lib/api-error';
-import { serverFetch } from '@/lib/api-server';
-import type { Suggestion } from '@/lib/types';
+import { unwrap } from '@/lib/api-result';
+import { adviesControllerGetAdvies } from '@/lib/generated-server';
+import type { AdviesItemDto } from '@/lib/generated/models';
 
 export const metadata: Metadata = { title: 'Leesadvies' };
 
 export default async function AdviesPage() {
-    let suggestions: Suggestion[];
+    let suggestions: AdviesItemDto[];
 
     try {
-        suggestions = await serverFetch<Suggestion[]>('/advies', { auth: true });
+        suggestions = unwrap(await adviesControllerGetAdvies());
     } catch (error) {
         // Lege staat: de gebruiker heeft nog geen leesprofiel (de API geeft 404).
         if (error instanceof ApiError && error.status === 404) {

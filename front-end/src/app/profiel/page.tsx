@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { serverFetch } from '@/lib/api-server';
-import type { Profile } from '@/lib/types';
+import { unwrap } from '@/lib/api-result';
+import { profileControllerGetProfile } from '@/lib/generated-server';
 import { ProfielForm } from './ProfielForm';
 
 export const metadata: Metadata = { title: 'Leesprofiel' };
 
 export default async function ProfielPage() {
-    // null = nog geen leesprofiel: het formulier staat dan in "aanmaken"-modus.
-    const profiel = await serverFetch<Profile | null>('/profile', { auth: true });
+    // De API geeft een lege body (null) zonder leesprofiel: het formulier staat dan in "aanmaken"-modus.
+    const profiel = unwrap(await profileControllerGetProfile()) ?? null;
 
     return (
         <div className="max-w-md">

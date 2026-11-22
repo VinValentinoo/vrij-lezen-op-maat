@@ -6,15 +6,16 @@ import { Button } from '@/components/ui/Button';
 import { PageTitle } from '@/components/ui/PageTitle';
 import { SelectField } from '@/components/ui/SelectField';
 import { TextField } from '@/components/ui/TextField';
-import { apiFetch } from '@/lib/api-client';
 import { getErrorMessage } from '@/lib/api-error';
+import { unwrap } from '@/lib/api-result';
+import { profileControllerUpsertProfile } from '@/lib/generated';
+import type { ReadingProfileResponseDto, UpdateProfileDto } from '@/lib/generated/models';
 import { GENRES, LENGTES, ONDERWERPEN, TAALNIVEAUS } from '@/lib/opties';
-import type { Profile } from '@/lib/types';
 
-const LEEG_PROFIEL: Profile = { taalniveau: '', genre: '', onderwerp: '', lengte: '', leesdoel: '' };
+const LEEG_PROFIEL: UpdateProfileDto = { taalniveau: '', genre: '', onderwerp: '', lengte: '', leesdoel: '' };
 
 // De API stuurt ook id, userId en updatedAt mee; het formulier gebruikt alleen deze velden.
-const kiesVelden = (p: Profile): Profile => ({
+const kiesVelden = (p: UpdateProfileDto): UpdateProfileDto => ({
     taalniveau: p.taalniveau,
     genre: p.genre,
     onderwerp: p.onderwerp,
@@ -25,14 +26,14 @@ const kiesVelden = (p: Profile): Profile => ({
 // Client component omdat dit een formulier met state is. De beginwaarden komen
 // van de server component (profiel/page.tsx), dus er is geen useEffect-fetch of
 // laad-flits meer.
-export function ProfielForm({ initial }: { initial: Profile | null }) {
-    const [profile, setProfile] = useState<Profile>(initial ? kiesVelden(initial) : LEEG_PROFIEL);
+export function ProfielForm({ initial }: { initial: ReadingProfileResponseDto | null }) {
+    const [profile, setProfile] = useState<UpdateProfileDto>(initial ? kiesVelden(initial) : LEEG_PROFIEL);
     const [profileExists, setProfileExists] = useState(initial !== null);
     const [bezig, setBezig] = useState(false);
     const [err, setErr] = useState('');
     const [succes, setSucces] = useState(false);
 
-    function wijzig(veld: keyof Profile, waarde: string) {
+    function wijzig(veld: keyof UpdateProfileDto, waarde: string) {
         setProfile((huidig) => ({ ...huidig, [veld]: waarde }));
     }
 
@@ -43,10 +44,7 @@ export function ProfielForm({ initial }: { initial: Profile | null }) {
         setBezig(true);
 
         try {
-            const data = await apiFetch<Profile>('/profile', {
-                method: 'PUT',
-                body: JSON.stringify(profile),
-            });
+            const data = unwrap(await profileControllerUpsertProfile(profile));
             setProfile(kiesVelden(data));
             setProfileExists(true);
             setSucces(true);
